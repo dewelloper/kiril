@@ -1,0 +1,128 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// import { DashboardComponent } from './dashboard.component';
+const home_component_1 = require("./home/home.component");
+const webhosting_component_1 = require("./hostings/webhosting/webhosting.component");
+const adddomain_component_1 = require("./hostings/adddomain/adddomain.component");
+const addsubdomain_component_1 = require("./hostings/addsubdomain/addsubdomain.component");
+const plans_component_1 = require("./hostings/plans/plans.component");
+const intransfer_component_1 = require("./domains/intransfer/intransfer.component");
+const outtransfer_component_1 = require("./domains/outtransfer/outtransfer.component");
+const parking_component_1 = require("./domains/parking/parking.component");
+const dns_component_1 = require("./domains/dns/dns.component");
+const relocate_component_1 = require("./domains/relocate/relocate.component");
+const serverplans_component_1 = require("./server/serverplans/serverplans.component");
+const addserver_component_1 = require("./server/addserver/addserver.component");
+const servers_component_1 = require("./server/servers/servers.component");
+const server_detail_component_1 = require("./server/servers/server-detail.component");
+const mailhostingaccount_component_1 = require("./mails/mailhostingaccount/mailhostingaccount.component");
+const addmaildomain_component_1 = require("./mails/addmaildomain/addmaildomain.component");
+const mailplans_component_1 = require("./mails/mailplans/mailplans.component");
+const databases_component_1 = require("./database/databases/databases.component");
+const adddatabase_component_1 = require("./database/adddatabase/adddatabase.component");
+const databaseplans_component_1 = require("./database/databaseplans/databaseplans.component");
+const addssl_component_1 = require("./ssl/addssl/addssl.component");
+const sslplans_component_1 = require("./ssl/sslplans/sslplans.component");
+const ssls_component_1 = require("./ssl/ssls/ssls.component");
+const addlicence_component_1 = require("./licence/addlicence/addlicence.component");
+const licenceplans_component_1 = require("./licence/licenceplans/licenceplans.component");
+const licences_component_1 = require("./licence/licences/licences.component");
+const addticket_component_1 = require("./ticket/addticket/addticket.component");
+const ticketdevelopment_component_1 = require("./ticket/ticketdevelopment/ticketdevelopment.component");
+const tickethelp_component_1 = require("./ticket/tickethelp/tickethelp.component");
+const settingacc_component_1 = require("./accounts/accsetting/settingacc.component");
+const account_component_1 = require("./accounts/account/account.component");
+const addcloudservice_component_1 = require("./cloudservice/addcloudservice/addcloudservice.component");
+const cloudserviceplans_component_1 = require("./cloudservice/cloudserviceplans/cloudserviceplans.component");
+const cloudservices_component_1 = require("./cloudservice/cloudservices/cloudservices.component");
+const servicerefresh_component_1 = require("./refreshprocess/servicerefresh/servicerefresh.component");
+const domainrefresh_component_1 = require("./refreshprocess/domainrefresh/domainrefresh.component");
+//import { CanActivateViaAuthGuard } from './canactivateviaauthguard';
+const charts_component_1 = require("./charts/charts.component");
+const widges_component_1 = require("./widges/widges.component");
+const calendar_component_1 = require("./calendar/calendar.component");
+exports.MODULE_ROUTES = [
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: home_component_1.HomeComponent },
+    { path: 'hostings/webhosting', component: webhosting_component_1.WebhostingComponent },
+    { path: 'hostings/adddomain', component: adddomain_component_1.AdddomainComponent },
+    { path: 'domains/intransfer', component: intransfer_component_1.IntransferComponent },
+    { path: 'domains/outtransfer', component: outtransfer_component_1.OuttransferComponent },
+    { path: 'hostings/addsubdomain', component: addsubdomain_component_1.AddsubdomainComponent },
+    { path: 'hostings/plans', component: plans_component_1.PlansComponent },
+    { path: 'domains/parking', component: parking_component_1.ParkingComponent },
+    { path: 'domains/dns', component: dns_component_1.DnsComponent },
+    { path: 'domains/relocate', component: relocate_component_1.RelocateComponent },
+    { path: 'mails/addmaildomain', component: addmaildomain_component_1.AddmaildomainComponent },
+    { path: 'mails/mailhostingaccount', component: mailhostingaccount_component_1.MailhostingaccountComponent },
+    { path: 'mails/mailplans', component: mailplans_component_1.MailplansComponent },
+    { path: 'server/serverplans', component: serverplans_component_1.ServerplansComponent },
+    { path: 'server/addserver', component: addserver_component_1.AddserverComponent },
+    { path: 'server/servers', component: servers_component_1.ServersComponent },
+    { path: 'server/detail/:id', component: server_detail_component_1.ServerDetailComponent },
+    { path: 'database/adddatabase', component: adddatabase_component_1.AdddatabaseComponent },
+    { path: 'database/databaseplans', component: databaseplans_component_1.DatabaseplansComponent },
+    { path: 'database/databases', component: databases_component_1.DatabasesComponent },
+    { path: 'ssl/addssl', component: addssl_component_1.AddsslComponent },
+    { path: 'ssl/sslplans', component: sslplans_component_1.SslplansComponent },
+    { path: 'ssl/ssls', component: ssls_component_1.SslsComponent },
+    { path: 'licence/addlicence', component: addlicence_component_1.AddlicenceComponent },
+    { path: 'licence/licenceplans', component: licenceplans_component_1.LicenceplansComponent },
+    { path: 'licence/licences', component: licences_component_1.LicencesComponent },
+    { path: 'ticket/addticket', component: addticket_component_1.AddticketlComponent },
+    { path: 'ticket/ticketdevelopment', component: ticketdevelopment_component_1.TicketdevelopmentComponent },
+    { path: 'ticket/tickethelp', component: tickethelp_component_1.TickethelpComponent },
+    { path: 'accounts/accsetting', component: settingacc_component_1.SettingaccComponent },
+    { path: 'accounts/account', component: account_component_1.AccountComponent },
+    { path: 'cloudservice/addcloudservice', component: addcloudservice_component_1.AddcloudserviceComponent },
+    { path: 'cloudservice/cloudserviceplans', component: cloudserviceplans_component_1.CloudserviceplansComponent },
+    { path: 'cloudservice/cloudservices', component: cloudservices_component_1.CloudservicesComponent },
+    { path: 'refreshprocess/servicerefresh', component: servicerefresh_component_1.ServicerefreshComponent },
+    { path: 'refreshprocess/domainrefresh', component: domainrefresh_component_1.DomainrefreshComponent },
+    { path: 'charts', component: charts_component_1.ChartsComponent },
+    { path: 'widges', component: widges_component_1.WidgesComponent },
+    { path: 'calendar', component: calendar_component_1.CalendarComponent },
+];
+//
+exports.MODULE_COMPONENTS = [
+    home_component_1.HomeComponent,
+    webhosting_component_1.WebhostingComponent,
+    adddomain_component_1.AdddomainComponent,
+    intransfer_component_1.IntransferComponent,
+    outtransfer_component_1.OuttransferComponent,
+    addsubdomain_component_1.AddsubdomainComponent,
+    plans_component_1.PlansComponent,
+    parking_component_1.ParkingComponent,
+    dns_component_1.DnsComponent,
+    relocate_component_1.RelocateComponent,
+    mailhostingaccount_component_1.MailhostingaccountComponent,
+    addmaildomain_component_1.AddmaildomainComponent,
+    mailplans_component_1.MailplansComponent,
+    serverplans_component_1.ServerplansComponent,
+    addserver_component_1.AddserverComponent,
+    servers_component_1.ServersComponent,
+    server_detail_component_1.ServerDetailComponent,
+    adddatabase_component_1.AdddatabaseComponent,
+    databaseplans_component_1.DatabaseplansComponent,
+    databases_component_1.DatabasesComponent,
+    addssl_component_1.AddsslComponent,
+    sslplans_component_1.SslplansComponent,
+    ssls_component_1.SslsComponent,
+    addlicence_component_1.AddlicenceComponent,
+    licenceplans_component_1.LicenceplansComponent,
+    licences_component_1.LicencesComponent,
+    addticket_component_1.AddticketlComponent,
+    ticketdevelopment_component_1.TicketdevelopmentComponent,
+    tickethelp_component_1.TickethelpComponent,
+    settingacc_component_1.SettingaccComponent,
+    account_component_1.AccountComponent,
+    addcloudservice_component_1.AddcloudserviceComponent,
+    cloudserviceplans_component_1.CloudserviceplansComponent,
+    cloudservices_component_1.CloudservicesComponent,
+    servicerefresh_component_1.ServicerefreshComponent,
+    domainrefresh_component_1.DomainrefreshComponent,
+    charts_component_1.ChartsComponent,
+    calendar_component_1.CalendarComponent,
+    widges_component_1.WidgesComponent,
+];
+//# sourceMappingURL=dashboard.routes.js.map

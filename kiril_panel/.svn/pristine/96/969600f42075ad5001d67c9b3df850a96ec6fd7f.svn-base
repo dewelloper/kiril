@@ -1,0 +1,12 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+    moduleId: module.id,
+    selector: 'servers-cmp',
+    templateUrl: 'servers.component.html'
+})
+
+export class ServersComponent implements OnInit{
+    ngOnInit(){
+    }
+}

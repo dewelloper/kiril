@@ -1,0 +1,12 @@
+﻿import { Component } from '@angular/core';
+
+
+@Component({
+    moduleId: module.id,
+    selector: 'canactivate-cmp',
+    templateUrl: 'canactivate.component.html',
+})
+
+export class CanactivateComponent {
+
+}

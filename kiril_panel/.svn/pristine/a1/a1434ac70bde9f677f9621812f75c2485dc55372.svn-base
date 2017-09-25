@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+
+export class Server {
+    id: number;
+    name: string;
+}
+
+
+@Component({
+    moduleId: module.id,
+    selector: 'addserver-cmp',
+    templateUrl: 'addserver.component.html'
+})
+
+export class AddserverComponent implements OnInit{  
+    ngOnInit() {
+
+    }
+
+    title = 'Sunucu Ekle';
+    server: Server = {
+        id: 1,
+        name: 'Windstorm'
+    };        
+}

@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{066538B7-89F3-46C2-80F7-60F17BA2B75B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Markum.Cloud.Libraries</RootNamespace>
+    <AssemblyName>Markum.Cloud.Libraries</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MailEnable.Administration">
+      <HintPath>C:\Users\hamit.yildirim\Desktop\MailEnable.Administration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services3">
+      <HintPath>..\lib\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebsitePanel.EnterpriseServer.Base">
+      <HintPath>..\lib\WebsitePanel.EnterpriseServer.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="WebsitePanel.EnterpriseServer.Client">
+      <HintPath>..\lib\WebsitePanel.EnterpriseServer.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="WebsitePanel.Providers.Base">
+      <HintPath>..\lib\WebsitePanel.Providers.Base.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\AnalyserAttribute.cs" />
+    <Compile Include="Attributes\SolusVmQueryAttribute.cs" />
+    <Compile Include="Hosting\ApiBaseModel.cs" />
+    <Compile Include="Hosting\HostingBaseModel.cs" />
+    <Compile Include="Hosting\HostingFeatureModel.cs" />
+    <Compile Include="LibraryObjects\AttributeHelper.cs" />
+    <Compile Include="LibraryObjects\HostingBase.cs" />
+    <Compile Include="LibraryObjects\PanelUser.cs" />
+    <Compile Include="LibraryObjects\Plan.cs" />
+    <Compile Include="LibraryObjects\Server.cs" />
+    <Compile Include="LibraryObjects\SolusBase.cs" />
+    <Compile Include="Mail\ErrorCodes.cs" />
+    <Compile Include="Mail\MailboxOptions.cs" />
+    <Compile Include="Mail\MailboxRedirectionStatus.cs" />
+    <Compile Include="Mail\MailboxSizeWildCards.cs" />
+    <Compile Include="Mail\MailEnableAdmin.cs" />
+    <Compile Include="Mail\MailEnableMessages.cs" />
+    <Compile Include="Mail\MailEnableUtils.cs" />
+    <Compile Include="Mail\MEException.cs" />
+    <Compile Include="Mail\MEResult.cs" />
+    <Compile Include="Mail\Net\MEConnection.cs" />
+    <Compile Include="Mail\PostOfficeOptions.cs" />
+    <Compile Include="Mail\Rights.cs" />
+    <Compile Include="Mail\Status.cs" />
+    <Compile Include="Mail\SystemOptionScope.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\ServerBaseModel.cs" />
+    <Compile Include="Server\ServerChangeMemoryModel.cs" />
+    <Compile Include="Server\ServerCreateModel.cs" />
+    <Compile Include="Server\ServerRemoveModel.cs" />
+    <Compile Include="Server\SolusCreateResponse.cs" />
+    <Compile Include="Server\SolusResponseBase.cs" />
+    <Compile Include="Service References\AddressMap\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Directory\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Domain\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GroupMember\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Group\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ListMember\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\List\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Login\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Mailbox\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PostOffice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Service1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SystemOptions\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Util\CPanelXMLAPI.cs" />
+    <Compile Include="Util\CryptoUtils.cs" />
+    <Compile Include="Util\DbHelper.cs" />
+    <Compile Include="Util\Enums.cs" />
+    <Compile Include="Util\esHelper.cs" />
+    <Compile Include="Util\StringHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Service References\AddressMap\AddressMap.wsdl" />
+    <None Include="Service References\AddressMap\Markum.Cloud.Libraries.AddressMap.AddressMap.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressMap\Markum.Cloud.Libraries.AddressMap.GetAddressMapObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressMap\Markum.Cloud.Libraries.AddressMap.ListAddressMapResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Directory\Directory.wsdl" />
+    <None Include="Service References\Directory\Markum.Cloud.Libraries.Directory.AddDirectoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Directory\Markum.Cloud.Libraries.Directory.Directory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Directory\Markum.Cloud.Libraries.Directory.EditDirectoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Directory\Markum.Cloud.Libraries.Directory.GetDirectoryObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Directory\Markum.Cloud.Libraries.Directory.GetDirectoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Directory\Markum.Cloud.Libraries.Directory.ListDirectoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Directory\Markum.Cloud.Libraries.Directory.RemoveDirectoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Domain\Domain.wsdl" />
+    <None Include="Service References\Domain\Markum.Cloud.Libraries.Domain.Domain.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Domain\Markum.Cloud.Libraries.Domain.GetDomainObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Domain\Markum.Cloud.Libraries.Domain.ListDomainResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GroupMember\GroupMember.wsdl" />
+    <None Include="Service References\GroupMember\Markum.Cloud.Libraries.GroupMember.GetGroupMemberObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GroupMember\Markum.Cloud.Libraries.GroupMember.GroupMember.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GroupMember\Markum.Cloud.Libraries.GroupMember.ListGroupMemberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Group\Group.wsdl" />
+    <None Include="Service References\Group\Markum.Cloud.Libraries.Group.GetGroupObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Group\Markum.Cloud.Libraries.Group.Group.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Group\Markum.Cloud.Libraries.Group.GroupListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListMember\ListMember.wsdl" />
+    <None Include="Service References\ListMember\Markum.Cloud.Libraries.ListMember.GetListMemberObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListMember\Markum.Cloud.Libraries.ListMember.ListListMemberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListMember\Markum.Cloud.Libraries.ListMember.ListMember.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\List\List.wsdl" />
+    <None Include="Service References\List\Markum.Cloud.Libraries.List.GetListObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\List\Markum.Cloud.Libraries.List.List.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\List\Markum.Cloud.Libraries.List.ListListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Login\Login.wsdl" />
+    <None Include="Service References\Login\Markum.Cloud.Libraries.Login.GetLoginObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Login\Markum.Cloud.Libraries.Login.ListLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Login\Markum.Cloud.Libraries.Login.Login.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Mailbox\Mailbox.wsdl" />
+    <None Include="Service References\Mailbox\Markum.Cloud.Libraries.Mailbox.GetMailboxObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Mailbox\Markum.Cloud.Libraries.Mailbox.ListMailboxResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Mailbox\Markum.Cloud.Libraries.Mailbox.Mailbox.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PostOffice\Markum.Cloud.Libraries.PostOffice.GetPostofficeObjectPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PostOffice\Markum.Cloud.Libraries.PostOffice.ListPostofficeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PostOffice\Markum.Cloud.Libraries.PostOffice.Postoffice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PostOffice\PostOffice.wsdl" />
+    <None Include="Service References\Service1\Markum.Cloud.Libraries.Service1.DiskInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1\Markum.Cloud.Libraries.Service1.ListMailboxResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1\Markum.Cloud.Libraries.Service1.ListPostofficeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1\Markum.Cloud.Libraries.Service1.Mailbox.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1\Markum.Cloud.Libraries.Service1.MessageCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1\Markum.Cloud.Libraries.Service1.Postoffice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1\Service1.wsdl" />
+    <None Include="Service References\SystemOptions\Markum.Cloud.Libraries.SystemOptions.GetOptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SystemOptions\Markum.Cloud.Libraries.SystemOptions.SetOptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SystemOptions\SystemOptions.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Directory\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Directory\configuration.svcinfo" />
+    <None Include="Service References\Directory\configuration91.svcinfo" />
+    <None Include="Service References\Directory\Directory.disco" />
+    <None Include="Service References\AddressMap\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AddressMap\configuration.svcinfo" />
+    <None Include="Service References\AddressMap\configuration91.svcinfo" />
+    <None Include="Service References\AddressMap\AddressMap.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Domain\Domain.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AddressMap\" />
+    <WCFMetadataStorage Include="Service References\Directory\" />
+    <WCFMetadataStorage Include="Service References\Domain\" />
+    <WCFMetadataStorage Include="Service References\GroupMember\" />
+    <WCFMetadataStorage Include="Service References\Group\" />
+    <WCFMetadataStorage Include="Service References\ListMember\" />
+    <WCFMetadataStorage Include="Service References\List\" />
+    <WCFMetadataStorage Include="Service References\Login\" />
+    <WCFMetadataStorage Include="Service References\Mailbox\" />
+    <WCFMetadataStorage Include="Service References\PostOffice\" />
+    <WCFMetadataStorage Include="Service References\Service1\" />
+    <WCFMetadataStorage Include="Service References\SystemOptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Domain\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Domain\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Domain\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Group\Group.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Group\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Group\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Group\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GroupMember\GroupMember.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GroupMember\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GroupMember\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GroupMember\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\List\List.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\List\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\List\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\List\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListMember\ListMember.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListMember\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListMember\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListMember\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Login\Login.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Login\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Login\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Login\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Mailbox\Mailbox.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Mailbox\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Mailbox\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Mailbox\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PostOffice\PostOffice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PostOffice\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PostOffice\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PostOffice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SystemOptions\SystemOptions.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SystemOptions\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SystemOptions\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SystemOptions\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Service1\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Service1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Service1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Service1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

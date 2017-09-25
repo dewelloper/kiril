@@ -1,0 +1,1 @@
+{"version":3,"file":"mailhostingaccount.component.js","sourceRoot":"","sources":["mailhostingaccount.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,wCAAkD;AASlD,IAAa,2BAA2B,GAAxC;IACI,QAAQ;IAER,CAAC;CACJ,CAAA;AAJY,2BAA2B;IANvC,gBAAS,CAAC;QACP,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAE,wBAAwB;QAClC,WAAW,EAAE,mCAAmC;KACnD,CAAC;GAEW,2BAA2B,CAIvC;AAJY,kEAA2B"}

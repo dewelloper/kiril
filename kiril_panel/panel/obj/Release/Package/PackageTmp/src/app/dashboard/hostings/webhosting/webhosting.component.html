@@ -1,0 +1,28 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 i18n="User welcome|An introduction header for this sample">Hello i18n!</h1>
+                    <ng-container i18n>I don't output any element</ng-container>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-header">
+                        <h4 class="card-title">Typescript RestService Call Test</h4>
+                    </div>
+                    <div class="card-content">
+                        <input type="button" class="btn" (click)="onGetFooBars()" value="call test" />
+                        <button type="button" class="btn btn-primary">Get JSon</button>
+                        <button type="button" class="btn btn-info">Post Json</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-header">
+                        <h4 class="card-title">Result</h4>
+                    </div>
+                    {{Data}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

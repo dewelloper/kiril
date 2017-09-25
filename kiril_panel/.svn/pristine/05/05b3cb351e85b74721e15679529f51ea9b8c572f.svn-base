@@ -1,0 +1,128 @@
+﻿<div class="main-content">
+    <div class="container-fluid">
+        <div class="header text-center">
+            <h3 class="title">{{title}}</h3>
+            <p class="category">Virtual server creating page</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div id="typography">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <form method="get" action="/" class="form-horizontal">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Virtual server type</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <select [(ngModel)]="selectedValue">
+                                                            <option *ngFor="let t of templates" [ngValue]="t">{{t.name}}</option>
+                                                        </select>
+                                                        <span class="help-block">Select virtual server type from the list</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Node Name</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="text" class="form-control" value placeholder="testnode">
+                                                        <span class="help-block">Node name</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Host Name</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="text" class="form-control" value placeholder="ugur45.test.com">
+                                                        <span class="help-block">Panel host name, must(*)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">User Name</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="text" class="form-control" value placeholder="ugurkizilkaya">
+                                                        <span class="help-block">Panel user name</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Password</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="password" class="form-control" value placeholder="123456">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Plan Name</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="text" class="form-control" value placeholder="test_plan">
+                                                        <span class="help-block">Plan name</span>
+                                                    </div>
+                                                </div>          
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Is Custom Plan</label>
+                                                <div class="col-sm-10">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes"> Yes
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Ip Count</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="text" class="form-control" value placeholder="1">
+                                                        <span class="help-block">Default 1 (it could be increase after the installment)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-2 label-on-left">Virtulization Type</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="text" class="form-control" value placeholder="SolusVm">
+                                                        <span class="help-block">SolusVm default</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Create Virtual Server</h4>
+                                                </div>
+                                                <div class="card-content">
+                                                    <button class="btn btn-primary btn-round" (click)="onSetCreateVM()">
+                                                        <i class="material-icons">favorite</i> Create V.M.
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

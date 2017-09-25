@@ -1,0 +1,987 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JSend.Client</name>
+    </assembly>
+    <members>
+        <member name="T:JSend.Client.CompositeMessageInterceptor">
+            <summary>
+            Performs additional work with outgoing requests/incoming responses by invoking all
+            contained <see cref="P:JSend.Client.CompositeMessageInterceptor.Interceptors"/>.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.CompositeMessageInterceptor.Interceptors">
+            <summary>Gets the interceptors contained within this instance.</summary>
+        </member>
+        <member name="M:JSend.Client.CompositeMessageInterceptor.#ctor(System.Collections.Generic.IEnumerable{JSend.Client.MessageInterceptor})">
+            <summary>
+            Initializes a new instance of <see cref="T:JSend.Client.CompositeMessageInterceptor"/>.
+            </summary>
+            <param name="interceptors">The message interceptors.</param>
+        </member>
+        <member name="M:JSend.Client.CompositeMessageInterceptor.#ctor(JSend.Client.MessageInterceptor[])">
+            <summary>
+            Initializes a new instance of <see cref="T:JSend.Client.CompositeMessageInterceptor"/>.
+            </summary>
+            <param name="interceptors">The message interceptors.</param>
+        </member>
+        <member name="M:JSend.Client.CompositeMessageInterceptor.OnSending(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Invokes <see cref="M:JSend.Client.MessageInterceptor.OnSending(System.Net.Http.HttpRequestMessage)"/> on the contained <see cref="P:JSend.Client.CompositeMessageInterceptor.Interceptors"/>.
+            </summary>
+            <param name="request">A request that is about to be dispatched.</param>
+        </member>
+        <member name="M:JSend.Client.CompositeMessageInterceptor.OnReceived(JSend.Client.ResponseReceivedContext)">
+            <summary>
+            Invokes <see cref="M:JSend.Client.MessageInterceptor.OnReceived(JSend.Client.ResponseReceivedContext)"/> on the contained <see cref="P:JSend.Client.CompositeMessageInterceptor.Interceptors"/>.
+            </summary>
+            <param name="context">The contextual data associated with the HTTP response message.</param>
+        </member>
+        <member name="M:JSend.Client.CompositeMessageInterceptor.OnParsed``1(JSend.Client.ResponseParsedContext{``0})">
+            <summary>
+            Invokes <see cref="M:JSend.Client.MessageInterceptor.OnParsed``1(JSend.Client.ResponseParsedContext{``0})"/> on the contained <see cref="P:JSend.Client.CompositeMessageInterceptor.Interceptors"/>.
+            </summary>
+            <typeparam name="TResponse">The type of the data contained by the JSend response.</typeparam>
+            <param name="context">The contextual data associated with the parsing.</param>
+        </member>
+        <member name="M:JSend.Client.CompositeMessageInterceptor.OnException(JSend.Client.ExceptionContext)">
+            <summary>
+            Invokes <see cref="M:JSend.Client.MessageInterceptor.OnException(JSend.Client.ExceptionContext)"/> on the contained <see cref="P:JSend.Client.CompositeMessageInterceptor.Interceptors"/>.
+            </summary>
+            <param name="context">The contextual data associated the exception.</param>
+        </member>
+        <member name="T:JSend.Client.JSendSchemas">
+            <summary>
+            Loads schemas for validating JSend responses.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendSchemas.GetBaseSchemaAsync">
+            <summary>
+            Loads a schema for validating a basic JSend response,
+            which must at least contain a status key with a valid value.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendSchemas.GetSuccessSchemaAsync">
+            <summary>Loads a schema for validating a JSend response with success status.</summary>
+        </member>
+        <member name="M:JSend.Client.JSendSchemas.GetFailSchemaAsync">
+            <summary>Loads a schema for validating a JSend response with fail status.</summary>
+        </member>
+        <member name="M:JSend.Client.JSendSchemas.GetErrorSchemaAsync">
+            <summary>Loads a schema for validating a JSend response with error status.</summary>
+        </member>
+        <member name="T:JSend.Client.Parsers.DefaultJSendParser">
+            <summary>
+            Parses HTTP responses into JSend response objects.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Parsers.DefaultJSendParser.Instance">
+            <summary>Gets an instance of <see cref="T:JSend.Client.Parsers.DefaultJSendParser"/>.</summary>
+        </member>
+        <member name="M:JSend.Client.Parsers.DefaultJSendParser.ParseAsync``1(Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the content of a <see cref="T:System.Net.Http.HttpResponseMessage"/> and returns a <see cref="T:JSend.Client.JSendResponse`1"/>.
+            </summary>
+            <typeparam name="T">The type of the expected data.</typeparam>
+            <param name="serializerSettings">The settings used to deserialize the response.</param>
+            <param name="httpResponse">The HTTP response message to parse.</param>
+            <returns>A task representings the parsed <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+            <exception cref="T:JSend.Client.JSendParseException">The HTTP response message could not be parsed.</exception>
+        </member>
+        <member name="M:JSend.Client.Parsers.DefaultJSendParser.ParseSuccessMessageAsync``1(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the content of a <see cref="T:Newtonsoft.Json.Linq.JToken"/> and returns a <see cref="T:JSend.Client.JSendResponse`1"/>
+            representing a successful response.
+            </summary>
+            <typeparam name="T">The type of the expected data.</typeparam>
+            <param name="json">The <see cref="T:Newtonsoft.Json.Linq.JToken"/> to parse.</param>
+            <param name="serializerSettings">The settings used to deserialize the response.</param>
+            <param name="responseMessage">The HTTP response message from where <paramref name="json"/> was extracted.</param>
+            <returns>A task representing the successful <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+            <exception cref="T:Newtonsoft.Json.Schema.JsonSchemaException"><paramref name="json"/> is not JSend formatted.</exception>
+            <exception cref="T:Newtonsoft.Json.JsonSerializationException">The JSend data cannot be converted to an instance of type <typeparamref name="T"/>.</exception>
+        </member>
+        <member name="M:JSend.Client.Parsers.DefaultJSendParser.ParseFailMessageAsync``1(Newtonsoft.Json.Linq.JToken,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the content of a <see cref="T:Newtonsoft.Json.Linq.JToken"/> and returns a <see cref="T:JSend.Client.JSendResponse`1"/>
+            representing a fail response.
+            </summary>
+            <typeparam name="T">The type of the expected data.</typeparam>
+            <param name="json">The <see cref="T:Newtonsoft.Json.Linq.JToken"/> to parse.</param>
+            <param name="responseMessage">The HTTP response message from where <paramref name="json"/> was extracted.</param>
+            <returns>A task representing the failed <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+            <exception cref="T:Newtonsoft.Json.Schema.JsonSchemaException"><paramref name="json"/> is not JSend formatted.</exception>
+        </member>
+        <member name="M:JSend.Client.Parsers.DefaultJSendParser.ParseErrorMessageAsync``1(Newtonsoft.Json.Linq.JToken,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the content of a <see cref="T:Newtonsoft.Json.Linq.JToken"/> and returns a <see cref="T:JSend.Client.JSendResponse`1"/>
+            representing an error response.
+            </summary>
+            <typeparam name="T">The type of the expected data.</typeparam>
+            <param name="json">The <see cref="T:Newtonsoft.Json.Linq.JToken"/> to parse.</param>
+            <param name="responseMessage">The HTTP response message from where <paramref name="json"/> was extracted.</param>
+            <returns>A task representing the error <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+            <exception cref="T:Newtonsoft.Json.Schema.JsonSchemaException"><paramref name="json"/> is not JSend formatted.</exception>
+        </member>
+        <member name="T:JSend.Client.Parsers.NakedContentParser">
+            <summary>
+            This parser assumes the request was successful when the data returned is not wrapped in a valid JSend "envelope".
+            E.g., the following document: 
+            <code>
+            {
+              "id": 5468,
+            }
+            </code>
+            
+            Will be parsed as if it was:
+            
+            <code>
+            {
+              "status": "success",
+              "data": {
+                "id": 5468
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="M:JSend.Client.Parsers.NakedContentParser.ParseAsync``1(Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the content of a <see cref="T:System.Net.Http.HttpResponseMessage"/> and returns a <see cref="T:JSend.Client.JSendResponse`1"/>.
+            </summary>
+            <typeparam name="T">The type of the expected data.</typeparam>
+            <param name="serializerSettings">The settings used to deserialize the response.</param>
+            <param name="httpResponse">The HTTP response message to parse.</param>
+            <returns>A task representings the parsed <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+            <exception cref="T:JSend.Client.JSendParseException">The HTTP response message could not be parsed.</exception>
+        </member>
+        <member name="T:JSend.Client.ExceptionContext">
+            <summary>
+            RepresentsRepresents an exception and the contextual data associated with it when it was caught.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.ExceptionContext.HttpRequest">
+            <summary>Gets the request being processed when the exception was caught.</summary>
+        </member>
+        <member name="P:JSend.Client.ExceptionContext.Exception">
+            <summary>Gets the exception that was caught while processing <see cref="P:JSend.Client.ExceptionContext.HttpRequest"/>.</summary>
+        </member>
+        <member name="M:JSend.Client.ExceptionContext.#ctor(System.Net.Http.HttpRequestMessage,System.Exception)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.ExceptionContext"/>.</summary>
+            <param name="httpRequest">The request being processed when the exception was caught.</param>
+            <param name="exception">The exception that was caught while processing <paramref name="httpRequest"/>.</param>
+        </member>
+        <member name="T:JSend.Client.IJSendClient">
+            <summary>
+            Sends HTTP requests and parses JSend-formatted HTTP responses.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.IJSendClient.SerializerSettings">
+            <summary>Gets the settings used to serialize requests/deserialize responses.</summary>
+        </member>
+        <member name="P:JSend.Client.IJSendClient.HttpClient">
+            <summary>Gets the client used to send HTTP requests and receive HTTP responses.</summary>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.GetAsync``1(System.String)">
+            <summary>Send a GET request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.GetAsync``1(System.Uri)">
+            <summary>Send a GET request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.GetAsync``1(System.Uri,System.Threading.CancellationToken)">
+            <summary>Send a GET request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PostAsync``1(System.String,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PostAsync``1(System.Uri,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PostAsync``1(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PostAsync(System.String,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PostAsync(System.Uri,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PostAsync(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.DeleteAsync(System.String)">
+            <summary>Send a DELETE request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.DeleteAsync(System.Uri)">
+            <summary>Send a DELETE request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.DeleteAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>Send a DELETE request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PutAsync``1(System.String,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PutAsync``1(System.Uri,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PutAsync``1(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PutAsync(System.String,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PutAsync(System.Uri,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.PutAsync(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.SendAsync``1(System.Net.Http.HttpRequestMessage)">
+            <summary>Send an HTTP request as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="request">The HTTP request message to send.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.IJSendClient.SendAsync``1(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>Send an HTTP request as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="request">The HTTP request message to send.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="T:JSend.Client.IJSendParser">
+            <summary>
+            Parses HTTP responses into JSend response objects.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.IJSendParser.ParseAsync``1(Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the content of a <see cref="T:System.Net.Http.HttpResponseMessage"/> and returns a <see cref="T:JSend.Client.JSendResponse`1"/>.
+            </summary>
+            <typeparam name="T">The type of the expected data.</typeparam>
+            <param name="serializerSettings">The settings used to deserialize the response.</param>
+            <param name="httpResponse">The HTTP response message to parse.</param>
+            <returns>A task representings the parsed <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+            <exception cref="T:JSend.Client.JSendParseException">The HTTP response message could not be parsed.</exception>
+        </member>
+        <member name="T:JSend.Client.JSendClient">
+            <summary>
+            Sends HTTP requests and parses JSend-formatted HTTP responses.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendClient.#ctor">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendClient"/>.</summary>
+        </member>
+        <member name="M:JSend.Client.JSendClient.#ctor(JSend.Client.JSendClientSettings)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendClient"/>.</summary>
+            <param name="settings">The settings to configure this client.</param>
+        </member>
+        <member name="M:JSend.Client.JSendClient.#ctor(JSend.Client.JSendClientSettings,System.Net.Http.HttpClient)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendClient"/>.</summary>
+            <param name="settings">The settings to configure this client.</param>
+            <param name="httpClient">A client to send HTTP requests and receive HTTP responses.</param>
+        </member>
+        <member name="P:JSend.Client.JSendClient.Parser">
+            <summary>Gets the parser used to process JSend-formatted responses.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendClient.MessageInterceptor">
+            <summary>Gets the interceptor to perform additional work with outgoing requests/incoming responses.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendClient.Encoding">
+            <summary>Gets the encoding used to format a request's content.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendClient.SerializerSettings">
+            <summary>Gets the settings used to serialize requests/deserialize responses.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendClient.HttpClient">
+            <summary>Gets the client used to send HTTP requests and receive HTTP responses.</summary>
+        </member>
+        <member name="M:JSend.Client.JSendClient.GetAsync``1(System.String)">
+            <summary>Send a GET request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.GetAsync``1(System.Uri)">
+            <summary>Send a GET request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.GetAsync``1(System.Uri,System.Threading.CancellationToken)">
+            <summary>Send a GET request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PostAsync``1(System.String,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PostAsync``1(System.Uri,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PostAsync``1(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PostAsync(System.String,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PostAsync(System.Uri,System.Object)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PostAsync(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a POST request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.DeleteAsync(System.String)">
+            <summary>Send a DELETE request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.DeleteAsync(System.Uri)">
+            <summary>Send a DELETE request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.DeleteAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>Send a DELETE request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PutAsync``1(System.String,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PutAsync``1(System.Uri,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PutAsync``1(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PutAsync(System.String,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PutAsync(System.Uri,System.Object)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.PutAsync(System.Uri,System.Object,System.Threading.CancellationToken)">
+            <summary>Send a PUT request to the specified Uri as an asynchronous operation.</summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The data to post.</param>        
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.SendAsync``1(System.Net.Http.HttpRequestMessage)">
+            <summary>Send an HTTP request as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="request">The HTTP request message to send.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.SendAsync``1(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>Send an HTTP request as an asynchronous operation.</summary>
+            <typeparam name="TResponse">The type of the expected data.</typeparam>
+            <param name="request">The HTTP request message to send.</param>
+            <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">An error occurred while sending the request.</exception>
+            <exception cref="T:JSend.Client.JSendParseException">An error occurred while parsing the response.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendClient.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendClient.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
+            </summary>
+            <param name="disposing">
+            <see langword="true"/> to release both managed and unmanaged resources;
+            <see langword="false"/> to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="T:JSend.Client.JSendClientSettings">
+            <summary>
+            Specifies the settings of a <see cref="T:JSend.Client.JSendClient"/>.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.JSendClientSettings.Parser">
+            <summary>Gets or sets the parser used to process JSend-formatted responses.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendClientSettings.MessageInterceptor">
+            <summary>Gets or sets the interceptor to perform additional work with outgoing requests/incoming responses.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendClientSettings.Encoding">
+            <summary>Gets or sets the encoding used to format a request's content.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendClientSettings.SerializerSettings">
+            <summary>Gets or sets the settings used to serialize requests/deserialize responses.</summary>
+        </member>
+        <member name="T:JSend.Client.JSendError">
+            <summary>Represents an error returned by a JSend API.</summary>
+        </member>
+        <member name="M:JSend.Client.JSendError.#ctor(JSend.Client.JSendStatus,System.String,System.Nullable{System.Int32},Newtonsoft.Json.Linq.JToken)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendError"/>.</summary>
+            <param name="status">
+            The status of the response. Must be either <see cref="F:JSend.Client.JSendStatus.Error"/> or <see cref="F:JSend.Client.JSendStatus.Fail"/>.
+            </param>
+            <param name="message">
+            A meaningful, end-user-readable (or at the least log-worthy) message, explaining what went wrong.
+            </param>
+            <param name="code">A numeric code corresponding to the error, if applicable.</param>
+            <param name="data">A generic wrapper for the details of why the request failed.</param>
+        </member>
+        <member name="P:JSend.Client.JSendError.Status">
+            <summary>Gets the status of this response.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendError.Message">
+            <summary>Gets the error message explaining what went wrong.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendError.Code">
+            <summary>Gets the numeric error code corresponding to the error.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendError.Data">
+            <summary>Gets the generic data container.</summary>
+        </member>
+        <member name="M:JSend.Client.JSendError.Equals(JSend.Client.JSendError)">
+            <summary>Determines whether the specified <see cref="T:JSend.Client.JSendError"/> is equal to the current <see cref="T:JSend.Client.JSendError"/>.</summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns><see langword="true"/> if the specified error is equal to the current error; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendError.Equals(System.Object)">
+            <summary>Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:JSend.Client.JSendError"/>.</summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns><see langword="true"/> if the specified object is equal to the current object; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendError.GetHashCode">
+            <summary>Serves as a hash function for this <see cref="T:JSend.Client.JSendError"/>.</summary>
+            <returns>A hash code for this <see cref="T:JSend.Client.JSendError"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendError.op_Equality(JSend.Client.JSendError,JSend.Client.JSendError)">
+            <summary>Returns whether the two operands are equal.</summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> if both operands are equal; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendError.op_Inequality(JSend.Client.JSendError,JSend.Client.JSendError)">
+            <summary>Returns whether the two operands are not equal.</summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> if both operands are not equal; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendError.ToString">
+            <summary>Returns a string that represents the <see cref="T:JSend.Client.JSendError"/>.</summary>
+            <returns>A string that represents the <see cref="T:JSend.Client.JSendError"/>.</returns>
+        </member>
+        <member name="T:JSend.Client.JSendParseException">
+            <summary>
+            Represents an exception that occurred while trying to parse a HTTP response message into a JSend response.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendParseException.#ctor(System.String)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendParseException"/>.</summary>
+            <param name="message">The reason why the HTTP response message could not be parsed.</param>
+        </member>
+        <member name="M:JSend.Client.JSendParseException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendParseException"/>.</summary>
+            <param name="message">The reason why the HTTP response message could not be parsed.</param>
+            <param name="innerException">The exception that occurred while trying to parse a HTTP response message.</param>
+        </member>
+        <member name="T:JSend.Client.JSendRequestException">
+            <summary>
+            Represents an exception that ocurred while querying a JSend API.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendRequestException.#ctor(System.String)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendRequestException"/>.</summary>
+            <param name="message">A message that describes the current exception.</param>
+        </member>
+        <member name="M:JSend.Client.JSendRequestException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.JSendRequestException"/>.</summary>
+            <param name="message">A message that describes the current exception.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:JSend.Client.JSendResponse`1">
+            <summary>Represents the response received from a JSend API.</summary>
+            <typeparam name="T">The type of data expected to be returned by the API.</typeparam>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.#ctor(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Initializes a new instance of <see cref="T:JSend.Client.JSendResponse`1"/>.
+            </summary>
+            <param name="httpResponse">The HTTP response message.</param>
+        </member>
+        <member name="P:JSend.Client.JSendResponse`1.Data">
+            <summary>
+            Gets the data returned by the API.
+            If none was returned or if the response was not successful,
+            a <see cref="T:JSend.Client.JSendRequestException"/> will be thrown.
+            </summary>
+            <exception cref="T:JSend.Client.JSendRequestException">The request was not successful or did not return any data.</exception>
+        </member>
+        <member name="P:JSend.Client.JSendResponse`1.HasData">
+            <summary>Gets whether the response contains data.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendResponse`1.IsSuccess">
+            <summary>Indicates whether the JSend response had a status of "success".</summary>
+        </member>
+        <member name="P:JSend.Client.JSendResponse`1.Status">
+            <summary>Gets the status of the JSend response.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendResponse`1.HttpResponse">
+            <summary>Gets the HTTP response message.</summary>
+        </member>
+        <member name="P:JSend.Client.JSendResponse`1.Error">
+            <summary>
+            Gets the error object with the details of why the request failed.
+            <see langword="null"/> if the request was successful.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.GetDataOrDefault">
+            <summary>
+            Returns the response's data, if any;
+            otherwise the default value of <typeparamref name="T"/> is returned.
+            </summary>
+            <returns>The response's data or the default vale of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.GetDataOrDefault(`0)">
+            <summary>
+            Returns the response's data, if any;
+            otherwise <paramref name="defaultValue"/> is returned.
+            </summary>
+            <param name="defaultValue">The value to return if the response does not contain any data.</param>
+            <returns>The response's data or <paramref name="defaultValue"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.EnsureSuccessStatus">
+            <summary>Throws an exception if <see cref="P:JSend.Client.JSendResponse`1.IsSuccess"/> is <see langword="false"/>.</summary>
+            <returns>Returns itself if the call is successful.</returns>
+            <exception cref="T:JSend.Client.JSendRequestException">The request was not successful.</exception>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
+            </summary>
+            <param name="disposing">
+            <see langword="true"/> to release both managed and unmanaged resources;
+            <see langword="false"/> to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.Equals(System.Object)">
+            <summary>Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:JSend.Client.JSendResponse`1"/>.</summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns><see langword="true"/> if the specified object is equal to the current object; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.op_Equality(JSend.Client.JSendResponse{`0},JSend.Client.JSendResponse{`0})">
+            <summary>Returns whether the two operands are equal.</summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> if both operands are equal; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.op_Inequality(JSend.Client.JSendResponse{`0},JSend.Client.JSendResponse{`0})">
+            <summary>Returns whether the two operands are not equal.</summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> if both operands are not equal; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.GetHashCode">
+            <summary>Serves as a hash function for this <see cref="T:JSend.Client.JSendResponse`1"/>.</summary>
+            <returns>A hash code for this <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+        </member>
+        <member name="M:JSend.Client.JSendResponse`1.ToString">
+            <summary>Returns a string that represents the <see cref="T:JSend.Client.JSendResponse`1"/>.</summary>
+            <returns>A string that represents the <see cref="T:JSend.Client.JSendResponse`1"/>.</returns>
+        </member>
+        <member name="T:JSend.Client.JSendStatus">
+            <summary>Defines the possible statuses for a <see cref="T:JSend.Client.JSendResponse`1"/>.</summary>
+        </member>
+        <member name="F:JSend.Client.JSendStatus.Success">
+            <summary>Indicates that all went well, and (usually) some data was returned.</summary>
+        </member>
+        <member name="F:JSend.Client.JSendStatus.Fail">
+            <summary>
+            Indicates that there was a problem with the data submitted,
+            or some pre-condition of the API call wasn't satisfied.
+            </summary>
+        </member>
+        <member name="F:JSend.Client.JSendStatus.Error">
+            <summary>An error occurred in processing the request, i.e. an exception was thrown.</summary>
+        </member>
+        <member name="T:JSend.Client.MessageInterceptor">
+            <summary>
+            Represents an abstract interceptor that performs additional work with outgoing requests/incoming responses.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.MessageInterceptor.OnSending(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Called by the <see cref="T:JSend.Client.JSendClient"/> before a <see cref="T:System.Net.Http.HttpRequestMessage"/> is sent.
+            </summary>
+            <param name="request">A request that is about to be dispatched.</param>
+        </member>
+        <member name="M:JSend.Client.MessageInterceptor.OnReceived(JSend.Client.ResponseReceivedContext)">
+            <summary>
+            Called by the <see cref="T:JSend.Client.JSendClient"/> when a <see cref="T:System.Net.Http.HttpResponseMessage"/> is received.
+            </summary>
+            <param name="context">The contextual data associated with the HTTP response message.</param>
+        </member>
+        <member name="M:JSend.Client.MessageInterceptor.OnParsed``1(JSend.Client.ResponseParsedContext{``0})">
+            <summary>
+            Called by the <see cref="T:JSend.Client.JSendClient"/> when a <see cref="T:System.Net.Http.HttpResponseMessage"/> is
+            parsed into a <see cref="T:JSend.Client.JSendResponse`1"/>.
+            </summary>
+            <typeparam name="TResponse">The type of the data contained by the JSend response.</typeparam>
+            <param name="context">The contextual data associated with the parsing.</param>
+        </member>
+        <member name="M:JSend.Client.MessageInterceptor.OnException(JSend.Client.ExceptionContext)">
+            <summary>
+            Called by the <see cref="T:JSend.Client.JSendClient"/> when an exception is caught.
+            </summary>
+            <param name="context">The contextual data associated the exception.</param>
+        </member>
+        <member name="T:JSend.Client.NullMessageInterceptor">
+            <summary>Message interceptor that does nothing.</summary>
+        </member>
+        <member name="P:JSend.Client.NullMessageInterceptor.Instance">
+            <summary>Gets an instance of <see cref="T:JSend.Client.NullMessageInterceptor"/>.</summary>
+        </member>
+        <member name="T:JSend.Client.ResponseParsedContext`1">
+            <summary>
+            Represents a <see cref="T:JSend.Client.JSendResponse`1"/> and the contextual data associated with it when it was parsed.
+            </summary>
+            <typeparam name="TResponse">The type of the data contained by the JSend response.</typeparam>
+        </member>
+        <member name="M:JSend.Client.ResponseParsedContext`1.#ctor(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage,JSend.Client.JSendResponse{`0})">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.ResponseParsedContext`1"/>.</summary>
+            <param name="httpRequest">The HTTP request message that was sent.</param>
+            <param name="httpResponse">The HTTP response message that was received.</param>
+            <param name="jsendResponse">The parsed JSend response.</param>
+        </member>
+        <member name="P:JSend.Client.ResponseParsedContext`1.HttpRequest">
+            <summary>Gets the HTTP request message that was sent.</summary>
+        </member>
+        <member name="P:JSend.Client.ResponseParsedContext`1.HttpResponse">
+            <summary>Gets the HTTP response message that was received.</summary>
+        </member>
+        <member name="P:JSend.Client.ResponseParsedContext`1.JSendResponse">
+            <summary>Gets the parsed JSend response.</summary>
+        </member>
+        <member name="T:JSend.Client.ResponseReceivedContext">
+            <summary>
+            Represents a HTTP response message and the contextual data associated with it when it was received.
+            </summary>
+        </member>
+        <member name="M:JSend.Client.ResponseReceivedContext.#ctor(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.ResponseReceivedContext"/>.</summary>
+            <param name="httpRequest">The HTTP request message that was sent.</param>
+            <param name="httpResponse">The HTTP response message that was received.</param>
+        </member>
+        <member name="P:JSend.Client.ResponseReceivedContext.HttpRequest">
+            <summary>Gets the HTTP request message that was sent.</summary>
+        </member>
+        <member name="P:JSend.Client.ResponseReceivedContext.HttpResponse">
+            <summary>Gets the HTTP response message that was received.</summary>
+        </member>
+        <member name="T:JSend.Client.Properties.StringResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.ErrorWithSuccessStatus">
+            <summary>
+              Looks up a localized string similar to Status cannot be JSendStatus.Success..
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.HttpClientExecutionError">
+            <summary>
+              Looks up a localized string similar to An error occurred while sending the request..
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.ResponseParseError">
+            <summary>
+              Looks up a localized string similar to HTTP response message could not be parsed into an instance of type &quot;{0}&quot;. Content:{1}{2}.
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.ResponseWithEmptyBody">
+            <summary>
+              Looks up a localized string similar to HTTP response had an empty body. Only responses with the 204 No Content status code are allowed to have an empty body..
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.SuccessResponseWithoutData">
+            <summary>
+              Looks up a localized string similar to The JSend response was successful but did not contain any data..
+            </summary>
+        </member>
+        <member name="P:JSend.Client.Properties.StringResources.UnsuccessfulResponse">
+            <summary>
+              Looks up a localized string similar to JSend status does not indicate success: {0}..
+            </summary>
+        </member>
+        <member name="T:JSend.Client.Responses.JErrorResponse`1">
+            <summary>Represents a response received from a JSend API with status equal to "fail" or "error".</summary>
+            <typeparam name="T">The type of data expected to be returned by the API.</typeparam>
+        </member>
+        <member name="M:JSend.Client.Responses.JErrorResponse`1.#ctor(JSend.Client.JSendError,System.Net.Http.HttpResponseMessage)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.Responses.JErrorResponse`1"/>.</summary>
+            <param name="error">The error details.</param>
+            <param name="httpResponse">The HTTP response message.</param>
+        </member>
+        <member name="P:JSend.Client.Responses.JErrorResponse`1.Data">
+            <summary>
+            Throws a <see cref="T:JSend.Client.JSendRequestException"/> indicating that the request was
+            not successful and, therefore, no data was received.
+            </summary>
+            <exception cref="T:JSend.Client.JSendRequestException">The request was not successful.</exception>
+        </member>
+        <member name="P:JSend.Client.Responses.JErrorResponse`1.HasData">
+            <summary>Returns false.</summary>
+        </member>
+        <member name="P:JSend.Client.Responses.JErrorResponse`1.Status">
+            <summary>Gets the status of the JSend response.</summary>
+        </member>
+        <member name="P:JSend.Client.Responses.JErrorResponse`1.Error">
+            <summary>Gets the error object with the details of why the request failed.</summary>
+        </member>
+        <member name="T:JSend.Client.Responses.JSuccessResponse`1">
+            <summary>Represents a response received from a JSend API with "success" status, but no data.</summary>
+            <typeparam name="T">The type of data expected to be returned by the API.</typeparam>
+        </member>
+        <member name="M:JSend.Client.Responses.JSuccessResponse`1.#ctor(System.Net.Http.HttpResponseMessage)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.Responses.JSuccessResponse`1"/>.</summary>
+            <param name="httpResponse">The HTTP response message.</param>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessResponse`1.Data">
+            <summary>
+            Throws a <see cref="T:JSend.Client.JSendRequestException"/> indicating that no data was received.
+            </summary>
+            <exception cref="T:JSend.Client.JSendRequestException">No data was received.</exception>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessResponse`1.HasData">
+            <summary>Returns false.</summary>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessResponse`1.Status">
+            <summary>Returns <see cref="F:JSend.Client.JSendStatus.Success"/>.</summary>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessResponse`1.Error">
+            <summary>Returns <see langword="null"/>.</summary>
+        </member>
+        <member name="T:JSend.Client.Responses.JSuccessWithDataResponse`1">
+            <summary>Represents a response received from a JSend API with "success" status and data.</summary>
+            <typeparam name="T">The type of data expected to be returned by the API.</typeparam>
+        </member>
+        <member name="M:JSend.Client.Responses.JSuccessWithDataResponse`1.#ctor(`0,System.Net.Http.HttpResponseMessage)">
+            <summary>Initializes a new instance of <see cref="T:JSend.Client.Responses.JSuccessWithDataResponse`1"/>.</summary>
+            <param name="data">The data returned by the API.</param>
+            <param name="httpResponse">The HTTP response message.</param>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessWithDataResponse`1.Data">
+            <summary>Gets the data returned by the API.</summary>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessWithDataResponse`1.HasData">
+            <summary>Returns true.</summary>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessWithDataResponse`1.Status">
+            <summary>Returns <see cref="F:JSend.Client.JSendStatus.Success"/>.</summary>
+        </member>
+        <member name="P:JSend.Client.Responses.JSuccessWithDataResponse`1.Error">
+            <summary>Returns <see langword="null"/>.</summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,68 @@
+﻿<div class="main-content">
+    <div class="container-fluid">
+        <div class="header text-center">
+            <h3 class="title">Markum</h3>
+            <p class="category">Created using Roboto Font Family</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div id="typography">
+                            <div class="card-title">
+                                <h2>{{title}}</h2>
+                            </div>
+                            <div class="row">
+                                <div class="tim-typo">
+                                    <h3>
+                                        <span class="tim-note"></span>{{server.name}} Details2
+                                    </h3>
+                                </div>                                
+                                
+                                <div class="tim-typo">
+                                    <span class="tim-note">id:</span>{{server.id}}   
+                                </div>
+
+                                <div class="tim-typo">
+                                    nameAlii :
+                                    <input [(ngModel)]="server.name" placeholder="name">                                        
+                                </div>
+
+                                <div class="tim-typo">
+                                    <span class="tim-note">Primary Text</span>
+                                    <p class="text-primary">
+                                        I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                                    </p>
+                                </div>
+                                <div class="tim-typo">
+                                    <span class="tim-note">Info Text</span>
+                                    <p class="text-info">
+                                        I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                                    </p>
+                                </div>
+                                <div class="tim-typo">
+                                    <span class="tim-note">Success Text</span>
+                                    <p class="text-success">
+                                        I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                                    </p>
+                                </div>
+                                <div class="tim-typo">
+                                    <span class="tim-note">Warning Text</span>
+                                    <p class="text-warning">
+                                        I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                                    </p>
+                                </div>                               
+                                
+                                <div class="card-content">
+                                    <input type="button" class="btn" (click)="onGetFooBars()" value="call test" />
+                                    <button type="button" class="btn btn-primary">Get JSon</button>
+                                    <button type="button" class="btn btn-info">Post Json</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

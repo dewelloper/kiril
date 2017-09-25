@@ -1,0 +1,68 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace panel
+{
+    public partial class design : System.Web.UI.MasterPage
+    {
+
+        public string _accessToken;
+        protected string _accessUrl = "http://beta.core.markum.net/api/customeraccount";
+        protected string _currUser;
+         
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Request.QueryString["acc"] != null)
+            {
+                _accessToken = Request.QueryString["acc"].ToString();
+                Session["_accessToken"] = _accessToken;
+            }
+
+            if (HttpContext.Current.Request.IsLocal)
+            {
+                Session["_accessToken"] = "w36ZQDaU7ukW-6Hw-d9k_s0QtE66bZ7MDCoLKtR_gs32NrDTRkERT-WSMOxW5UXDSP7wFWBlB-2e46AsuawPG8QQbgXFiNjXQ0HhNA807YA8Gr3rPxJhB26ZPBxaC_Y0RlrwqzbGy2yWYh4aapZjLZD84W4vPGmvzAQuyugYc5GFwF8FgNl127IzVpXYudkT1mXp98_-PQA5zntFgTg6Qum8LO90g-eWDKmHT4nH-LiMPoDg-Hggr83GSFy0n-jvtGzR8F2G9XzttXnG1jXQf52F2aMjBST4zVI-7aV3YF4bq9S8n3rdzU797N8Vz4YIGO5Xum7UqSMDpQa7u5htNwKjVhCpPXuKeIVZSN2oLYI";
+                _accessToken = Session["_accessToken"].ToString();
+            }
+
+            if (!IsAccessTokenOk())
+            {
+                Response.Redirect("http://beta.markum.net/Account/Login");
+            }
+        }
+
+
+        private bool IsAccessTokenOk()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                if (Session["_accessToken"] == null)
+                    return false;
+
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Session["_accessToken"].ToString());
+
+                var response = httpClient.GetAsync(_accessUrl).Result;
+
+                if (response.StatusCode.ToString() == "Unauthorized")
+                    return false;
+
+                var res = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result);
+
+                _currUser = res.data.Name + ' ' + res.data.Surname;
+            }
+
+            return true;
+        }
+
+
+    }
+}

@@ -1,0 +1,119 @@
+﻿using JSend.WebApi;
+using Markum.Cloud.BusinessObjects;
+using Markum.Cloud.Libraries.Hosting;
+using Markum.Cloud.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Cors;
+using WebsitePanel.EnterpriseServer;
+
+namespace Markum.Cloud.Api.Controllers
+{
+    [EnableCors(origins: "*", headers: "*", methods: "*")] // tune to your needs
+    [RoutePrefix("")]
+    public class WindowsHostingController : BaseApiController
+    {
+        IHostingServiceWindowsPanel _hostingService;
+
+        public WindowsHostingController(IHostingServiceWindowsPanel hostingService) : base()
+        {
+            _hostingService = hostingService;
+        }
+
+        [HttpPost]
+        public IHttpActionResult AddHosting([FromBody]HostingPlanInfo planInfo, ApiBaseModel model, out string message)
+        {
+            message = "";
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return JSendBadRequest(ModelState);
+                }
+
+                var result = _hostingService.AddHosting(planInfo, model, out message);
+
+                return JSendCreated("", result);
+            }
+            catch (Exception ex)
+            {
+                return JSendError(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public IHttpActionResult UpdateServiceSettings([FromBody]ApiBaseModel model, string serviceId, string wspIpAddressId, out string message)
+        {
+            message = "";
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return JSendBadRequest(ModelState);
+                }
+
+                var result = _hostingService.UpdateServiceSettings(model, serviceId, wspIpAddressId, out message);
+
+                return JSendCreated("", result);
+            }
+            catch (Exception ex)
+            {
+                return JSendError(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        //User adding Step3
+        public IHttpActionResult AddUser(UserInfo userInfo, ApiBaseModel model, out string message)
+        {
+            message = "";
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return JSendBadRequest(ModelState);
+                }
+
+                var result = _hostingService.AddUser(userInfo, model, out message);
+
+                return JSendCreated("", result);
+            }
+            catch (Exception ex)
+            {
+                return JSendError(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        //Package adding Step4
+        public IHttpActionResult AddPackageWithResources(ApiBaseModel model, int userId, int planId, string panelPlanName, string domainName,
+            out string message, int statusId = 1,
+            bool sendLater = false, bool createResource = true, bool tempdomain = true,
+            bool createWebSite = true, bool createFtpAccount = true, string ftpAccountName = null,
+            bool createMailAccount = false, string hostName = "")
+        {
+            message = "";
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return JSendBadRequest(ModelState);
+                }
+
+                var result = _hostingService.AddPackageWithResources(model, userId, planId, panelPlanName,
+            hostName, domainName, out message, statusId, sendLater, createResource, tempdomain,
+            createWebSite, createFtpAccount, ftpAccountName, createMailAccount);
+                return JSendCreated("", result);
+            }
+            catch (Exception ex)
+            {
+                return JSendError(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+
+
+    }
+}

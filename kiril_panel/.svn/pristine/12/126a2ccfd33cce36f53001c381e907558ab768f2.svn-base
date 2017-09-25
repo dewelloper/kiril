@@ -1,0 +1,62 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace panel
+{
+    public partial class design : System.Web.UI.MasterPage
+    {
+
+        protected string _accessToken;
+        protected string _accessUrl = "http://beta.core.markum.net/api/account";
+        protected string _currUser;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Request.QueryString["acc"] != null)
+            {
+                _accessToken = Request.QueryString["acc"].ToString();
+                Session["_accessToken"] = _accessToken;
+            }
+
+            Session["_accessToken"] = "u3Pki7pMNQaLlZCEZjaeDE9AUQq62FqrLyF5z1_TmoQPFZFBcXtlRl8BvjLA3eZdrAlUvUo5EtuNONiXVlBHGexTGAP24l6KvISGnbCNd_-n7MNvjFEqskAq2lx517uuI9tNh4HnYJ6U2P6-GCurgtg-dXg-ePFyuJVdtGVXvi_g7GERJGox8IgyVV6VxUKy0-OeQH2fXf9nrJNVv71JMMs16yPKySEtRqjG8FEhzDoVflMAskmWsF4B7SM5AXNExjvzIH6QNR0tvyydTs7CN1c7dnFI4DtOovY5eRDuI8uOG6zP30Md_noVUSvXyKLC";
+
+            if (!IsAccessTokenOk())
+            {
+                Response.Redirect("http://beta.markum.net/Account/Login");
+            }
+        }
+
+
+        private bool IsAccessTokenOk()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                if (Session["_accessToken"] == null)
+                    return false;
+
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Session["_accessToken"].ToString());
+
+                var response = httpClient.GetAsync(_accessUrl).Result;
+
+                if (response.StatusCode.ToString() == "Unauthorized")
+                    return false;
+
+                _currUser = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result).Name;
+            }
+
+            return true;
+        }
+
+
+    }
+}

@@ -1,0 +1,13 @@
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\Markum.Cloud.Libraries.dll.config
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\Markum.Cloud.Libraries.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\Markum.Cloud.Libraries.pdb
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\MailEnable.Administration.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\Microsoft.Web.Services3.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\WebsitePanel.EnterpriseServer.Base.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\WebsitePanel.EnterpriseServer.Client.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\WebsitePanel.Providers.Base.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\Microsoft.Web.Administration.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Debug\Newtonsoft.Json.xml
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\obj\Debug\Markum.Cloud.Libraries.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\obj\Debug\Markum.Cloud.Libraries.pdb

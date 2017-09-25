@@ -1,0 +1,15 @@
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Markum.Cloud.BusinessObjects.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Markum.Cloud.BusinessObjects.pdb
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Markum.Cloud.Libraries.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\WebsitePanel.EnterpriseServer.Base.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Microsoft.Web.Services3.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\WebsitePanel.EnterpriseServer.Client.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\MailEnable.Administration.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\WebsitePanel.Providers.Base.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Microsoft.Web.Administration.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Markum.Cloud.Libraries.pdb
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\bin\Debug\Newtonsoft.Json.xml
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\obj\Debug\Markum.Cloud.BusinessObjects.csprojResolveAssemblyReference.cache
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\obj\Debug\Markum.Cloud.BusinessObjects.dll
+D:\workspace\KirilLesh\Markum.Cloud.BusinessObjects\obj\Debug\Markum.Cloud.BusinessObjects.pdb

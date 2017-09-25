@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetSystemOption">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="scope" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="valueName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemOptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemOptionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POPRetrieval">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailbox" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailserver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="port" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POPRetrievalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POPRetrievalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListMailbox">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfMailbox" />
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Size" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Top" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLength" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMailbox">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Mailbox" nillable="true" type="tns:Mailbox" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Mailbox">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MarshalByRefObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailboxName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RedirectAddress" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RedirectStatus" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Size" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="Host" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MarshalByRefObject" abstract="true" />
+      <s:element name="ListMailboxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListMailboxResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfMailbox" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveLoginResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListPostoffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfPostoffice" />
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Page" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Paging" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPostoffice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Postoffice" nillable="true" type="tns:Postoffice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Postoffice">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MarshalByRefObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Host" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ListPostofficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListPostofficeResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfPostoffice" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPOPRetriever">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailserver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="port" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPOPRetrieverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPOPRetrieverResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWindowsServiceStatusID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailEnableServiceTypeName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWindowsServiceStatusIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetWindowsServiceStatusIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWindowsServiceStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailEnableWinService">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWindowsServiceStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWindowsServiceStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailEnableServiceTypeName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartServiceResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StopService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailEnableServiceTypeName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopServiceResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RestartService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailEnableServiceTypeName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeoutMilliseconds" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartServiceResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="BackupConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="configpath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="backuppath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxbackup" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackupConfigResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDisks">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDisksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDisksResult" type="tns:ArrayOfDiskInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDiskInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DiskInfo" nillable="true" type="tns:DiskInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DiskInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalSize" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalFreeSpace" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMessageCommands">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageCommandsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageCommandsResult" type="tns:ArrayOfMessageCommand" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageCommand">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageCommand" nillable="true" type="tns:MessageCommand" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageCommand">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Recipients" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientIP" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteMessageCommandFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMessageCommandFilesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMessageCommandFilesByRecipient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMessageCommandFilesByRecipientResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMessageCommandFilesByClientIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMessageCommandFilesByClientIPResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMessageCommandsBySender">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageCommandsBySenderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageCommandsBySenderResult" type="tns:ArrayOfMessageCommand" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageCommandsByRecipient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageCommandsByRecipientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageCommandsByRecipientResult" type="tns:ArrayOfMessageCommand" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageCommandsByClientIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageCommandsByClientIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageCommandsByClientIPResult" type="tns:ArrayOfMessageCommand" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadMessageCommandFileText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadMessageCommandFileTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadMessageCommandFileTextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadMessageFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadMessageFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadMessageFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestMe">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestMeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestMeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSystemOptionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemOption" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemOptionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="POPRetrievalSoapIn">
+    <wsdl:part name="parameters" element="tns:POPRetrieval" />
+  </wsdl:message>
+  <wsdl:message name="POPRetrievalSoapOut">
+    <wsdl:part name="parameters" element="tns:POPRetrievalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListMailboxSoapIn">
+    <wsdl:part name="parameters" element="tns:ListMailbox" />
+  </wsdl:message>
+  <wsdl:message name="ListMailboxSoapOut">
+    <wsdl:part name="parameters" element="tns:ListMailboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveLogin" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListPostofficeSoapIn">
+    <wsdl:part name="parameters" element="tns:ListPostoffice" />
+  </wsdl:message>
+  <wsdl:message name="ListPostofficeSoapOut">
+    <wsdl:part name="parameters" element="tns:ListPostofficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPOPRetrieverSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPOPRetriever" />
+  </wsdl:message>
+  <wsdl:message name="GetPOPRetrieverSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPOPRetrieverResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsServiceStatusIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWindowsServiceStatusID" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsServiceStatusIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWindowsServiceStatusIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsServiceStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWindowsServiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsServiceStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWindowsServiceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:StartService" />
+  </wsdl:message>
+  <wsdl:message name="StartServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:StartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:StopService" />
+  </wsdl:message>
+  <wsdl:message name="StopServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:StopServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartService" />
+  </wsdl:message>
+  <wsdl:message name="RestartServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackupConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:BackupConfig" />
+  </wsdl:message>
+  <wsdl:message name="BackupConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:BackupConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDisksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDisks" />
+  </wsdl:message>
+  <wsdl:message name="GetDisksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDisksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageCommands" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageCommandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageCommandFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMessageCommandFiles" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageCommandFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMessageCommandFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageCommandFilesByRecipientSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMessageCommandFilesByRecipient" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageCommandFilesByRecipientSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMessageCommandFilesByRecipientResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageCommandFilesByClientIPSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMessageCommandFilesByClientIP" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageCommandFilesByClientIPSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMessageCommandFilesByClientIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsBySenderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageCommandsBySender" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsBySenderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageCommandsBySenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsByRecipientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageCommandsByRecipient" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsByRecipientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageCommandsByRecipientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsByClientIPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageCommandsByClientIP" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageCommandsByClientIPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageCommandsByClientIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadMessageCommandFileTextSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadMessageCommandFileText" />
+  </wsdl:message>
+  <wsdl:message name="ReadMessageCommandFileTextSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadMessageCommandFileTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadMessageFileSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadMessageFile" />
+  </wsdl:message>
+  <wsdl:message name="ReadMessageFileSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadMessageFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestMeSoapIn">
+    <wsdl:part name="parameters" element="tns:TestMe" />
+  </wsdl:message>
+  <wsdl:message name="TestMeSoapOut">
+    <wsdl:part name="parameters" element="tns:TestMeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="GetSystemOption">
+      <wsdl:input message="tns:GetSystemOptionSoapIn" />
+      <wsdl:output message="tns:GetSystemOptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POPRetrieval">
+      <wsdl:input message="tns:POPRetrievalSoapIn" />
+      <wsdl:output message="tns:POPRetrievalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListMailbox">
+      <wsdl:input message="tns:ListMailboxSoapIn" />
+      <wsdl:output message="tns:ListMailboxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogin">
+      <wsdl:input message="tns:RemoveLoginSoapIn" />
+      <wsdl:output message="tns:RemoveLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPostoffice">
+      <wsdl:input message="tns:ListPostofficeSoapIn" />
+      <wsdl:output message="tns:ListPostofficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPOPRetriever">
+      <wsdl:input message="tns:GetPOPRetrieverSoapIn" />
+      <wsdl:output message="tns:GetPOPRetrieverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsServiceStatusID">
+      <wsdl:input message="tns:GetWindowsServiceStatusIDSoapIn" />
+      <wsdl:output message="tns:GetWindowsServiceStatusIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsServiceStatus">
+      <wsdl:input message="tns:GetWindowsServiceStatusSoapIn" />
+      <wsdl:output message="tns:GetWindowsServiceStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <wsdl:input message="tns:StartServiceSoapIn" />
+      <wsdl:output message="tns:StartServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <wsdl:input message="tns:StopServiceSoapIn" />
+      <wsdl:output message="tns:StopServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <wsdl:input message="tns:RestartServiceSoapIn" />
+      <wsdl:output message="tns:RestartServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackupConfig">
+      <wsdl:input message="tns:BackupConfigSoapIn" />
+      <wsdl:output message="tns:BackupConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisks">
+      <wsdl:input message="tns:GetDisksSoapIn" />
+      <wsdl:output message="tns:GetDisksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommands">
+      <wsdl:input message="tns:GetMessageCommandsSoapIn" />
+      <wsdl:output message="tns:GetMessageCommandsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFiles">
+      <wsdl:input message="tns:DeleteMessageCommandFilesSoapIn" />
+      <wsdl:output message="tns:DeleteMessageCommandFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFilesByRecipient">
+      <wsdl:input message="tns:DeleteMessageCommandFilesByRecipientSoapIn" />
+      <wsdl:output message="tns:DeleteMessageCommandFilesByRecipientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFilesByClientIP">
+      <wsdl:input message="tns:DeleteMessageCommandFilesByClientIPSoapIn" />
+      <wsdl:output message="tns:DeleteMessageCommandFilesByClientIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsBySender">
+      <wsdl:input message="tns:GetMessageCommandsBySenderSoapIn" />
+      <wsdl:output message="tns:GetMessageCommandsBySenderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsByRecipient">
+      <wsdl:input message="tns:GetMessageCommandsByRecipientSoapIn" />
+      <wsdl:output message="tns:GetMessageCommandsByRecipientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsByClientIP">
+      <wsdl:input message="tns:GetMessageCommandsByClientIPSoapIn" />
+      <wsdl:output message="tns:GetMessageCommandsByClientIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadMessageCommandFileText">
+      <wsdl:input message="tns:ReadMessageCommandFileTextSoapIn" />
+      <wsdl:output message="tns:ReadMessageCommandFileTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadMessageFile">
+      <wsdl:input message="tns:ReadMessageFileSoapIn" />
+      <wsdl:output message="tns:ReadMessageFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestMe">
+      <wsdl:input message="tns:TestMeSoapIn" />
+      <wsdl:output message="tns:TestMeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSystemOption">
+      <soap:operation soapAction="http://tempuri.org/GetSystemOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POPRetrieval">
+      <soap:operation soapAction="http://tempuri.org/POPRetrieval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListMailbox">
+      <soap:operation soapAction="http://tempuri.org/ListMailbox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogin">
+      <soap:operation soapAction="http://tempuri.org/RemoveLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPostoffice">
+      <soap:operation soapAction="http://tempuri.org/ListPostoffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPOPRetriever">
+      <soap:operation soapAction="http://tempuri.org/GetPOPRetriever" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsServiceStatusID">
+      <soap:operation soapAction="http://tempuri.org/GetWindowsServiceStatusID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsServiceStatus">
+      <soap:operation soapAction="http://tempuri.org/GetWindowsServiceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap:operation soapAction="http://tempuri.org/StartService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap:operation soapAction="http://tempuri.org/StopService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <soap:operation soapAction="http://tempuri.org/RestartService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackupConfig">
+      <soap:operation soapAction="http://tempuri.org/BackupConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisks">
+      <soap:operation soapAction="http://tempuri.org/GetDisks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommands">
+      <soap:operation soapAction="http://tempuri.org/GetMessageCommands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFiles">
+      <soap:operation soapAction="http://tempuri.org/DeleteMessageCommandFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFilesByRecipient">
+      <soap:operation soapAction="http://tempuri.org/DeleteMessageCommandFilesByRecipient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFilesByClientIP">
+      <soap:operation soapAction="http://tempuri.org/DeleteMessageCommandFilesByClientIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsBySender">
+      <soap:operation soapAction="http://tempuri.org/GetMessageCommandsBySender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsByRecipient">
+      <soap:operation soapAction="http://tempuri.org/GetMessageCommandsByRecipient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsByClientIP">
+      <soap:operation soapAction="http://tempuri.org/GetMessageCommandsByClientIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMessageCommandFileText">
+      <soap:operation soapAction="http://tempuri.org/ReadMessageCommandFileText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMessageFile">
+      <soap:operation soapAction="http://tempuri.org/ReadMessageFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMe">
+      <soap:operation soapAction="http://tempuri.org/TestMe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSystemOption">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemOption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POPRetrieval">
+      <soap12:operation soapAction="http://tempuri.org/POPRetrieval" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListMailbox">
+      <soap12:operation soapAction="http://tempuri.org/ListMailbox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogin">
+      <soap12:operation soapAction="http://tempuri.org/RemoveLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPostoffice">
+      <soap12:operation soapAction="http://tempuri.org/ListPostoffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPOPRetriever">
+      <soap12:operation soapAction="http://tempuri.org/GetPOPRetriever" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsServiceStatusID">
+      <soap12:operation soapAction="http://tempuri.org/GetWindowsServiceStatusID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsServiceStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetWindowsServiceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap12:operation soapAction="http://tempuri.org/StartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap12:operation soapAction="http://tempuri.org/StopService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <soap12:operation soapAction="http://tempuri.org/RestartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackupConfig">
+      <soap12:operation soapAction="http://tempuri.org/BackupConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisks">
+      <soap12:operation soapAction="http://tempuri.org/GetDisks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommands">
+      <soap12:operation soapAction="http://tempuri.org/GetMessageCommands" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFiles">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMessageCommandFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFilesByRecipient">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMessageCommandFilesByRecipient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageCommandFilesByClientIP">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMessageCommandFilesByClientIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsBySender">
+      <soap12:operation soapAction="http://tempuri.org/GetMessageCommandsBySender" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsByRecipient">
+      <soap12:operation soapAction="http://tempuri.org/GetMessageCommandsByRecipient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageCommandsByClientIP">
+      <soap12:operation soapAction="http://tempuri.org/GetMessageCommandsByClientIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMessageCommandFileText">
+      <soap12:operation soapAction="http://tempuri.org/ReadMessageCommandFileText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMessageFile">
+      <soap12:operation soapAction="http://tempuri.org/ReadMessageFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMe">
+      <soap12:operation soapAction="http://tempuri.org/TestMe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="https://mcpanel.markum.net/MailEnableService/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="https://mcpanel.markum.net/MailEnableService/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

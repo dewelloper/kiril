@@ -1,0 +1,63 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace panel
+{
+    public partial class design : System.Web.UI.MasterPage
+    {
+
+        protected string _accessToken;
+        protected string _accessUrl = "http://beta.core.markum.net/api/account";
+        protected string _currUser;
+         
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Request.QueryString["acc"] != null)
+            {
+                _accessToken = Request.QueryString["acc"].ToString();
+                Session["_accessToken"] = _accessToken;
+            }
+
+            if (HttpContext.Current.Request.IsLocal)
+                Session["_accessToken"] = "iVXvt9_hlEy2a3OhQIkCuj182E23gYH3XRKDmbyoBIJkWuB_FD1_eOwoUFKi1_xWShKJjsnci3UgS79gk94hirp3Bi58u-wxOlw5By66ZvW3NID0_j2e_cwXhBPAi4advJelDaNvLWV79rEHlvqRpbVyDdkkvF2Dk0M77a5OiNf_pN3Fp8gKlBbtuINhO1REfRroVXnDcnf6smuYpV4Y0K14xkZcLCI7lrvyH4jd51K-4gceWjWb9_52tz-wVj2IxKQdZ0vSfBYz4q1AI0mYKHWyjlYFsCPObKS-NWRIWceUC_D9WuzhicEH_mdIhyWRdhuwqa-K7C8AuOXcVOM2Nw";
+
+            if (!IsAccessTokenOk())
+            {
+                Response.Redirect("http://beta.markum.net/Account/Login");
+            }
+        }
+
+
+        private bool IsAccessTokenOk()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                if (Session["_accessToken"] == null)
+                    return false;
+
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Session["_accessToken"].ToString());
+
+                var response = httpClient.GetAsync(_accessUrl).Result;
+
+                if (response.StatusCode.ToString() == "Unauthorized")
+                    return false;
+
+                _currUser = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result).Name;
+            }
+
+            return true;
+        }
+
+
+    }
+}

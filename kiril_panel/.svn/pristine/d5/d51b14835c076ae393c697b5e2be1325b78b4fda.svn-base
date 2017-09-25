@@ -1,0 +1,73 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Server } from './../../server';
+import { ServerService } from './../../../services/server.service';
+
+
+@Component({
+    moduleId: module.id,
+    selector: 'servers-cmp',
+    templateUrl: 'servers.component.html',
+    //styleUrls: ['./servers.component.css', './../styles.css']
+})
+
+
+
+export class ServersComponent implements OnInit{
+    servers: Server[];
+    selectedServer: Server;
+    responseData: any;
+
+    constructor(
+        private router: Router,
+        private serverService: ServerService
+    ) { }
+
+    ngOnInit(): void {
+        this.getServers();
+    }
+
+    getServers(): void {
+        this.serverService.getServers().then(servers => this.servers = servers);
+    }
+
+    getServers_(): void {
+        this.serverService.getServers_()
+            .subscribe(
+                data => this.responseData = JSON.stringify(data),
+                error => alert(error),
+                () => console.log("finished"));        
+    }
+
+    onSelect(server: Server): void {
+        this.selectedServer = server;
+    }
+
+    gotoDetail(): void {
+        this.router.navigate(['/server/detail', this.selectedServer.VirtualServerId]);
+    }
+
+    /*add(name: string): void {
+        name = name.trim();
+        if (!name) {            
+            return;
+        }       
+
+        this.serverService.create(name)
+            .then(server => {
+                this.servers.push(server);
+                this.selectedServer = null;
+            });
+    }*/
+
+    delete(server: Server): void {
+
+
+        this.serverService.delete(server.VirtualServerId)
+            .then(() => {
+                this.servers = this.servers.filter(h => h !== server);
+                if (this.selectedServer === server) { this.selectedServer = null; }
+            });
+    }
+}

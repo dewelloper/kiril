@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="AddressMapSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="AddressMapSoap1" />
+                <binding name="AddressMapSoap2">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="AddressMapSoap3" />
+                <binding name="DirectorySoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="DirectorySoap1" />
+                <binding name="DomainSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="DomainSoap1" />
+                <binding name="GroupSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="GroupSoap1" />
+                <binding name="GroupMemberSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="GroupMemberSoap1" />
+                <binding name="ListSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="ListSoap1" />
+                <binding name="ListMemberSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="ListMemberSoap1" />
+                <binding name="LoginSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="LoginSoap1" />
+                <binding name="MailboxSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="MailboxSoap1" />
+                <binding name="PostOfficeSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="PostOfficeSoap1" />
+                <binding name="SystemOptionsSoap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="SystemOptionsSoap1" />
+                <binding name="Service1Soap">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="Service1Soap1" />
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/AddressMap.asmx"
+                binding="basicHttpBinding" bindingConfiguration="AddressMapSoap"
+                contract="App_WebReferences.AddressMapSoap" name="AddressMapSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/AddressMap.asmx"
+                binding="basicHttpBinding" bindingConfiguration="AddressMapSoap2"
+                contract="AddressMap.AddressMapSoap" name="AddressMapSoap1" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/Directory.asmx"
+                binding="basicHttpBinding" bindingConfiguration="DirectorySoap"
+                contract="Directory.DirectorySoap" name="DirectorySoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/Domain.asmx"
+                binding="basicHttpBinding" bindingConfiguration="DomainSoap"
+                contract="Domain.DomainSoap" name="DomainSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/Group.asmx"
+                binding="basicHttpBinding" bindingConfiguration="GroupSoap"
+                contract="Group.GroupSoap" name="GroupSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/GroupMember.asmx"
+                binding="basicHttpBinding" bindingConfiguration="GroupMemberSoap"
+                contract="GroupMember.GroupMemberSoap" name="GroupMemberSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/List.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ListSoap"
+                contract="List.ListSoap" name="ListSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/ListMember.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ListMemberSoap"
+                contract="ListMember.ListMemberSoap" name="ListMemberSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/Login.asmx"
+                binding="basicHttpBinding" bindingConfiguration="LoginSoap"
+                contract="Login.LoginSoap" name="LoginSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/Mailbox.asmx"
+                binding="basicHttpBinding" bindingConfiguration="MailboxSoap"
+                contract="Mailbox.MailboxSoap" name="MailboxSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/PostOffice.asmx"
+                binding="basicHttpBinding" bindingConfiguration="PostOfficeSoap"
+                contract="PostOffice.PostOfficeSoap" name="PostOfficeSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/SystemOptions.asmx"
+                binding="basicHttpBinding" bindingConfiguration="SystemOptionsSoap"
+                contract="SystemOptions.SystemOptionsSoap" name="SystemOptionsSoap" />
+            <endpoint address="https://mcpanel.markum.net/MailEnableService/Service1.asmx"
+                binding="basicHttpBinding" bindingConfiguration="Service1Soap"
+                contract="Service1.Service1Soap" name="Service1Soap" />
+        </client>
+    </system.serviceModel>
+</configuration>

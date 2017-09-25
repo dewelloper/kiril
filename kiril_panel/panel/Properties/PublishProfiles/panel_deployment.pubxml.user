@@ -1,0 +1,1272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\workspace\newpanel\panel\..\panel_deploy</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>11/30/2016 16:07:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>12/07/2016 11:45:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>12/06/2016 15:15:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>12/07/2016 11:49:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/06/2016 15:09:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/panel.dll">
+      <publishTime>04/28/2017 18:09:58</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
+    </File>
+    <File Include="default.aspx">
+      <publishTime>04/27/2017 09:56:40</publishTime>
+    </File>
+    <File Include="design.Master">
+      <publishTime>04/28/2017 17:18:32</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="indexTemplate.html">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="lock.html">
+      <publishTime>04/27/2017 10:48:48</publishTime>
+    </File>
+    <File Include="login.html">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="Logout.aspx">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="package.json">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="pricing.html">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="register.html">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="src/app/app.component.html">
+      <publishTime>04/27/2017 10:48:48</publishTime>
+    </File>
+    <File Include="src/app/app.component.js">
+      <publishTime>04/28/2017 18:09:54</publishTime>
+    </File>
+    <File Include="src/app/app.component.js.map">
+      <publishTime>04/28/2017 18:09:54</publishTime>
+    </File>
+    <File Include="src/app/app.module.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/app.module.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/accounts/account/account.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/accounts/account/account.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/accounts/account/account.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/accounts/accsetting/settingacc.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/accounts/accsetting/settingacc.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/accounts/accsetting/settingacc.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/calendar/calendar.component.html">
+      <publishTime>04/26/2017 17:20:03</publishTime>
+    </File>
+    <File Include="src/app/dashboard/calendar/calendar.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/calendar/calendar.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/canactivateviaauthguard.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/canactivateviaauthguard.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/charts/charts.component.html">
+      <publishTime>04/26/2017 17:20:03</publishTime>
+    </File>
+    <File Include="src/app/dashboard/charts/charts.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/charts/charts.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/addcloudservice/addcloudservice.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/addcloudservice/addcloudservice.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/addcloudservice/addcloudservice.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/cloudserviceplans/cloudserviceplans.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/cloudserviceplans/cloudserviceplans.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/cloudserviceplans/cloudserviceplans.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/cloudservices/cloudservices.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/cloudservices/cloudservices.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/cloudservice/cloudservices/cloudservices.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/dashboard.component.html">
+      <publishTime>04/28/2017 17:06:34</publishTime>
+    </File>
+    <File Include="src/app/dashboard/dashboard.component.js">
+      <publishTime>04/28/2017 18:09:54</publishTime>
+    </File>
+    <File Include="src/app/dashboard/dashboard.component.js.map">
+      <publishTime>04/28/2017 18:09:54</publishTime>
+    </File>
+    <File Include="src/app/dashboard/dashboard.module.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/dashboard.module.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/dashboard.routes.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/dashboard.routes.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/adddatabase/adddatabase.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/adddatabase/adddatabase.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/adddatabase/adddatabase.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/databaseplans/databaseplans.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/databaseplans/databaseplans.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/databaseplans/databaseplans.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/databases/databases.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/databases/databases.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/database/databases/databases.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/dns/dns.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/dns/dns.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/dns/dns.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/intransfer/intransfer.component.html">
+      <publishTime>04/28/2017 13:32:05</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/intransfer/intransfer.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/intransfer/intransfer.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/outtransfer/outtransfer.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/outtransfer/outtransfer.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/outtransfer/outtransfer.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/parking/parking.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/parking/parking.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/parking/parking.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/relocate/relocate.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/relocate/relocate.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/domains/relocate/relocate.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/home/home.component.html">
+      <publishTime>04/26/2017 17:20:03</publishTime>
+    </File>
+    <File Include="src/app/dashboard/home/home.component.js">
+      <publishTime>04/28/2017 18:09:54</publishTime>
+    </File>
+    <File Include="src/app/dashboard/home/home.component.js.map">
+      <publishTime>04/28/2017 18:09:54</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/adddomain/adddomain.component.html">
+      <publishTime>04/28/2017 13:26:02</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/adddomain/adddomain.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/adddomain/adddomain.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/addsubdomain/addsubdomain.component.html">
+      <publishTime>04/28/2017 13:32:05</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/addsubdomain/addsubdomain.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/addsubdomain/addsubdomain.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/plans/plans.component.html">
+      <publishTime>04/28/2017 13:32:05</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/plans/plans.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/plans/plans.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/webhosting/webhosting.component.html">
+      <publishTime>04/27/2017 12:17:10</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/webhosting/webhosting.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/hostings/webhosting/webhosting.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/addlicence/addlicence.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/addlicence/addlicence.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/addlicence/addlicence.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/licenceplans/licenceplans.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/licenceplans/licenceplans.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/licenceplans/licenceplans.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/licences/licences.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/licences/licences.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/licence/licences/licences.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/addmaildomain/addmaildomain.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/addmaildomain/addmaildomain.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/addmaildomain/addmaildomain.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/mailhostingaccount/mailhostingaccount.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/mailhostingaccount/mailhostingaccount.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/mailhostingaccount/mailhostingaccount.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/mailplans/mailplans.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/mailplans/mailplans.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/mails/mailplans/mailplans.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/refreshprocess/domainrefresh/domainrefresh.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/refreshprocess/domainrefresh/domainrefresh.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/refreshprocess/domainrefresh/domainrefresh.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/refreshprocess/servicerefresh/servicerefresh.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/refreshprocess/servicerefresh/servicerefresh.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/refreshprocess/servicerefresh/servicerefresh.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/addserver/addserver.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/addserver/addserver.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/addserver/addserver.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/serverplans/serverplans.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/serverplans/serverplans.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/serverplans/serverplans.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/servers/servers.component.html">
+      <publishTime>04/28/2017 14:42:20</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/servers/servers.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/server/servers/servers.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/addssl/addssl.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/addssl/addssl.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/addssl/addssl.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/sslplans/sslplans.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/sslplans/sslplans.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/sslplans/sslplans.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/ssls/ssls.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/ssls/ssls.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ssl/ssls/ssls.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/addticket/addticket.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/addticket/addticket.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/addticket/addticket.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/ticketdevelopment/ticketdevelopment.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/ticketdevelopment/ticketdevelopment.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/ticketdevelopment/ticketdevelopment.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/tickethelp/tickethelp.component.html">
+      <publishTime>04/28/2017 12:58:21</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/tickethelp/tickethelp.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/ticket/tickethelp/tickethelp.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/widges/widges.component.html">
+      <publishTime>04/26/2017 17:20:03</publishTime>
+    </File>
+    <File Include="src/app/dashboard/widges/widges.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/dashboard/widges/widges.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/i18n-providers.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/i18n-providers.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/main.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/main.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/Services/http-authontication-service.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/Services/http-authontication-service.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/footer/footer.component.html">
+      <publishTime>04/28/2017 17:37:02</publishTime>
+    </File>
+    <File Include="src/app/shared/footer/footer.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/footer/footer.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/footer/footer.module.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/footer/footer.module.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/navbar/navbar.component.html">
+      <publishTime>04/28/2017 17:14:12</publishTime>
+    </File>
+    <File Include="src/app/shared/navbar/navbar.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/navbar/navbar.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/navbar/navbar.module.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/shared/navbar/navbar.module.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar-routes.config.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar-routes.config.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar.component.html">
+      <publishTime>04/28/2017 14:44:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar.component.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar.component.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar.metadata.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar.metadata.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar.module.js">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/app/sidebar/sidebar.module.js.map">
+      <publishTime>04/28/2017 18:09:55</publishTime>
+    </File>
+    <File Include="src/assets/css/bootstrap.min.css">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/css/demo.css">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/css/material-dashboard.css">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/css/material-dashboard.css.map">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/img/.DS_Store">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/angular2-logo-white.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/angular2-logo.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/apple-icon.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/bg-pricing.jpeg">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/card-1.jpeg">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/card-2.jpeg">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/card-3.jpeg">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/default-avatar.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/faces/avatar.jpg">
+      <publishTime>04/26/2017 17:20:04</publishTime>
+    </File>
+    <File Include="src/assets/img/faces/card-profile1-square.jpg">
+      <publishTime>04/26/2017 17:20:04</publishTime>
+    </File>
+    <File Include="src/assets/img/faces/card-profile2-square.jpg">
+      <publishTime>04/26/2017 17:20:04</publishTime>
+    </File>
+    <File Include="src/assets/img/faces/marc.jpg">
+      <publishTime>04/26/2017 17:20:04</publishTime>
+    </File>
+    <File Include="src/assets/img/favicon.png">
+      <publishTime>04/26/2017 07:03:56</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/AD.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/AE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/AG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/AM.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/AR.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/AT.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/AU.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/BE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/BF.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/BG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/BO.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/BR.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CD.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CH.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CL.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CM.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CN.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CO.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/CZ.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/DE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/DJ.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/DK.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/DZ.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/EE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/EG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/ES.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/FI.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/FR.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/GA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/GB.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/GM.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/GT.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/HN.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/HT.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/HU.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/ID.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/IE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/IL.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/IN.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/IQ.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/IR.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/IT.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/JM.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/JO.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/JP.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/KG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/KN.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/KP.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/KR.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/KW.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/KZ.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/LA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/LB.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/LC.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/LS.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/LU.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/LV.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/MG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/MK.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/ML.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/MM.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/MT.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/MX.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/NA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/NE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/NG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/NI.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/NL.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/NO.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/OM.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/PA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/PE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/PG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/PK.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/PL.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/PT.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/PY.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/QA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/RO.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/RU.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/RW.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/SA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/SE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/SG.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/SL.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/SN.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/SO.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/SV.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/TD.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/TJ.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/TL.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/TR.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/TZ.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/UA.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/US.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/VE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/VN.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/flags/YE.png">
+      <publishTime>04/26/2017 17:20:05</publishTime>
+    </File>
+    <File Include="src/assets/img/header-doc.jpeg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/image_placeholder.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/lock.jpeg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/login.jpeg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/mask.png">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/new_logo.png">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/placeholder.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/product1.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/product2.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/product3.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/register.jpeg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/sidebar-1.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/sidebar-2.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/sidebar-3.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/img/sidebar-4.jpg">
+      <publishTime>04/26/2017 17:20:10</publishTime>
+    </File>
+    <File Include="src/assets/js/core/arrive.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/core/bootstrap.min.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/core/jquery-3.1.1.min.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/core/jquery-ui.min.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/core/jquery.validate.min.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/core/material.min.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/core/perfect-scrollbar.jquery.min.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/demo.js">
+      <publishTime>04/28/2017 17:07:11</publishTime>
+    </File>
+    <File Include="src/assets/js/init/charts.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initAniCharts.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initChartsPage.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initCollapseArea.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initDataTable.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initDatetimepickers.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initFullCalendar.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initFullScreenpage.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initMaps.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initMenu.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initSliders.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initTooltips.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initVectorMap.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/initWizard.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/init/notify.js">
+      <publishTime>04/28/2017 17:27:14</publishTime>
+    </File>
+    <File Include="src/assets/js/material-dashboard-angular.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/bootstrap-datetimepicker.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/bootstrap-notify.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/chartist.min.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/es6-promise-auto.min.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/fullcalendar.min.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/jasny-bootstrap.min.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/jquery-jvectormap.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/jquery.bootstrap-wizard.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/jquery.datatables.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/jquery.select-bootstrap.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/jquery.tagsinput.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/moment.min.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/nouislider.min.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/plugins/sweetalert2.min.js">
+      <publishTime>04/26/2017 17:20:11</publishTime>
+    </File>
+    <File Include="src/assets/js/sidebar-moving-tab.js">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/locale/messages.de.xlf">
+      <publishTime>04/28/2017 17:45:10</publishTime>
+    </File>
+    <File Include="src/assets/locale/messages.en.xlf">
+      <publishTime>04/28/2017 17:41:45</publishTime>
+    </File>
+    <File Include="src/assets/locale/messages.tr.xlf">
+      <publishTime>04/28/2017 17:41:45</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/mixins/_chartist.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/mixins/_sidebar-color.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/mixins/_transparency.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/mixins/_vendor-prefixes.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_animate.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_chartist.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_datatables.net.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_fullcalendar.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_jquery.jvectormap.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_perfect-scrollbar.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_plugin-datetime-picker.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_plugin-nouislider.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_select-bootstrap.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_sweetalert2.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/plugins/_wizard-card.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_alerts.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_buttons.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_cards.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_checkboxes.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_colors.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_dialogs.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_dropdown.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_fileupload.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_footers.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_forms.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_inputs-size.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_inputs.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_labels.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_misc.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_mixins.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_navbars.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_pages.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_pagination.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_panels.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_pills.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_popups.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_progress.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_radios.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_responsive.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_ripples.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_shadows.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_sidebar-and-main-panel.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_tables.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_tabs.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_tags.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_timeline.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_togglebutton.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_typography.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="src/assets/sass/material-dashboard/_variables.scss">
+      <publishTime>04/26/2017 17:20:12</publishTime>
+    </File>
+    <File Include="systemjs-text-plugin.js">
+      <publishTime>04/26/2017 17:20:13</publishTime>
+    </File>
+    <File Include="systemjs.config.js">
+      <publishTime>04/27/2017 08:45:47</publishTime>
+    </File>
+    <File Include="tsconfig.json">
+      <publishTime>04/26/2017 18:45:35</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/28/2017 18:05:11</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

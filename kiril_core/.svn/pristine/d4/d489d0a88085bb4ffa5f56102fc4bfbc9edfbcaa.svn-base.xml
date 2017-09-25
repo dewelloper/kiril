@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/MEWebAdminService/Domain" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/MEWebAdminService/Domain" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/MEWebAdminService/Domain">
+      <s:element name="AddDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="RedirectionHosts" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RedirectionStatus" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddDomainResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDomainResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfDomain" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="DomainRedirectionHosts" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DomainRedirectionStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="MailAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Top" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLength" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDomain">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Domain" nillable="true" type="tns:Domain" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Domain">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MarshalByRefObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DomainRedirectionStatus" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DomainRedirectionHosts" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Host" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RetainMode" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PollForMessages" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="UpStreamHost" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PollInterval" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AliasMode" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AliasName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MarshalByRefObject" abstract="true" />
+      <s:element name="ListDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListDomainResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfDomain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomainObjectProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectProperties" type="tns:Domain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomainObjectPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDomainObjectPropertiesResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectProperties" type="tns:Domain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewDomainName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewStatus" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewRedirectionStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewRedirectionHosts" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewAccountName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditDomainResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveDomainResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDomain" />
+  </wsdl:message>
+  <wsdl:message name="AddDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDomain" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:ListDomain" />
+  </wsdl:message>
+  <wsdl:message name="ListDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:ListDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainObjectPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDomainObjectProperties" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainObjectPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDomainObjectPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:EditDomain" />
+  </wsdl:message>
+  <wsdl:message name="EditDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:EditDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveDomain" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveDomainResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DomainSoap">
+    <wsdl:operation name="AddDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add a new Domain. A Status value of 1 will enable the Domain, while a Status value of 0 will disable it. RedirectionStatus value of 1 will enable Domain Redirection, whilst 0 will disable it. Returns 1 if the Domain was added successfully, otherwise returns 0 if the Domain already exists.</wsdl:documentation>
+      <wsdl:input message="tns:AddDomainSoapIn" />
+      <wsdl:output message="tns:AddDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get an existing Domain. Returns 1 if the Domain exists, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:GetDomainSoapIn" />
+      <wsdl:output message="tns:GetDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of Domain Objects. Returns 0 if failure, 1 if complete, 2 if partial return</wsdl:documentation>
+      <wsdl:input message="tns:ListDomainSoapIn" />
+      <wsdl:output message="tns:ListDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainObjectProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the properties of an existing Domain. Returns 1 if the Domain exists, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:GetDomainObjectPropertiesSoapIn" />
+      <wsdl:output message="tns:GetDomainObjectPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit an existing Domain. Returns 1 if Domain successfully updated, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:EditDomainSoapIn" />
+      <wsdl:output message="tns:EditDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove an existing Domain. Returns 1 if the Domain was successfully removed, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:RemoveDomainSoapIn" />
+      <wsdl:output message="tns:RemoveDomainSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DomainSoap" type="tns:DomainSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDomain">
+      <soap:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/AddDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <soap:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/GetDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListDomain">
+      <soap:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/ListDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainObjectProperties">
+      <soap:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/GetDomainObjectProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDomain">
+      <soap:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/EditDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDomain">
+      <soap:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/RemoveDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DomainSoap12" type="tns:DomainSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDomain">
+      <soap12:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/AddDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <soap12:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/GetDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListDomain">
+      <soap12:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/ListDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainObjectProperties">
+      <soap12:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/GetDomainObjectProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDomain">
+      <soap12:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/EditDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDomain">
+      <soap12:operation soapAction="http://tempuri.org/MEWebAdminService/Domain/RemoveDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Domain">
+    <wsdl:port name="DomainSoap" binding="tns:DomainSoap">
+      <soap:address location="https://mcpanel.markum.net/MailEnableService/Domain.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DomainSoap12" binding="tns:DomainSoap12">
+      <soap12:address location="https://mcpanel.markum.net/MailEnableService/Domain.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

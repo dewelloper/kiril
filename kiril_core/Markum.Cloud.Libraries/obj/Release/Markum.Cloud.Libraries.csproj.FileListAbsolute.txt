@@ -1,0 +1,11 @@
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\Markum.Cloud.Libraries.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\Markum.Cloud.Libraries.pdb
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\Microsoft.Web.Services3.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\Newtonsoft.Json.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\WebsitePanel.EnterpriseServer.Base.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\WebsitePanel.EnterpriseServer.Client.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\WebsitePanel.Providers.Base.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\bin\Release\Newtonsoft.Json.xml
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\obj\Release\Markum.Cloud.Libraries.csprojResolveAssemblyReference.cache
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\obj\Release\Markum.Cloud.Libraries.dll
+D:\workspace\KirilLesh\Markum.Cloud.Libraries\obj\Release\Markum.Cloud.Libraries.pdb

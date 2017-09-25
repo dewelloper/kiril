@@ -1,0 +1,95 @@
+﻿<div class="main-content">
+    <div class="container-fluid">
+        <div class="header text-center">
+            <h3 class="title">Server Details</h3>            
+        </div>
+
+        <div *ngIf="server" class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div id="typography">
+                            <div class="card-title">
+                                <h2>{{server.MainIpAddress}} details! </h2>
+                            </div>
+                            <div class="row">                                                                
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Id: </span> {{server.Id}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo" *ngIf="server.ExtraIpAddress">
+                                    <h4>
+                                        <span class="tim-note">Extra Ip Address: </span> {{server.ExtraIpAddress}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Root Password: </span> {{server.RootPassword}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Virtual Server Id: </span> {{server.VirtualServerId}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Console User: </span> {{server.ConsoleUser}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Console Password: </span> {{server.ConsolePassword}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Host Name: </span> {{server.HostName}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Virt Id: </span> {{server.VirtId}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Node Id: </span> {{server.NodeId}}
+                                    </h4>
+                                </div>
+                                <div class="tim-typo">
+                                    <h4>
+                                        <span class="tim-note">Create Date: </span> {{server.CreateDate }}
+                                    </h4>
+                                </div>
+
+                                <div class="col-md-12">                                    
+                                    <div class="card-content">                                        
+                                        <button type="button" class="btn btn-primary btn-round" (click)="goBack()">Back</button>                                        
+                                        <button type="button" class="btn btn-primary btn-round" >Save</button>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!--<div *ngIf="server">    
+
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="server.name" placeholder="name" />
+    </div>
+    <button type="button" (click)="goBack()">Geri</button>
+    <button type="button" (click)="save()">Kaydet</button>
+</div>-->

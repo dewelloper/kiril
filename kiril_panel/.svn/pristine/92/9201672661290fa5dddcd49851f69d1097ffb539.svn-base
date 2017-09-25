@@ -1,0 +1,69 @@
+﻿<h2>Sunucularım</h2>
+<div>
+    <label>Sunucu Adı: </label> <input #serverName />
+    <button type="button" (click)="add(serverName.value); serverName.value=''">Ekle</button>
+</div>
+
+<ul class="heroes">
+    <li *ngFor="let server of servers"
+        [class.selected]="server === selectedServer"
+        (click)="onSelect(server)">
+        <span class="badge">{{server.Id}} </span>
+        <span>{{server.MainIpAddress}}</span> 
+        <!--<span> {{server.CustomerId}} </span>-->
+        <button type="button" class="delete" (click)="delete(server); $event.stopPropagation()">Sil</button>
+    </li>
+</ul>
+<div *ngIf="selectedServer">
+    <h2>
+        {{selectedServer.MainIpAddress | uppercase}} seçildi
+    </h2>
+    <button type="button" (click)="gotoDetail()">Detaya Git</button>
+</div>
+
+
+<!--<div class="main-content">
+    <div class="container-fluid">
+        <div class="header text-center">
+            <h3 class="title">Markum</h3>
+            <p class="category">Created using Roboto Font Family</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div id="typography">
+                            <div class="card-title">
+                                <h2>{{title}}</h2>
+                            </div>
+                            <div class="row">
+                                <div class="tim-typo">
+                                    <h3>
+                                        <span class="tim-note"></span>Benim Sunucularım
+                                    </h3>
+                                </div>
+                                <div class="tim-typo">
+                                    <ul>
+                                        <li *ngFor="let server of servers"
+                                            [class.selected]="server === selectedServer"
+                                            (click)="onSelect(server)">
+                                            <span class="tim-note">{{server.id}} </span>{{server.name}}
+                                        </li>                                        
+                                    </ul>
+                                </div>
+                                <div class="tim-typo" *ngIf="selectedServer">
+                                    <h2>{{selectedServer.name}} details!</h2>
+                                    <div><label>id: </label>{{selectedServer.id}}</div>
+                                    <div>
+                                        <label>name: </label>
+                                        <input [(ngModel)]="selectedServer.name" placeholder="name" />
+                                    </div>
+                                </div>                                                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

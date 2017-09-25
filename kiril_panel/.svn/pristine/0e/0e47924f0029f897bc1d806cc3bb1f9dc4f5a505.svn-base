@@ -1,0 +1,115 @@
+﻿<div class="main-content">
+    <div class="container-fluid">
+        <br /><br /><br />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">assignment</i>
+                    </div>
+                    <h4 class="card-title">My Servers</h4>
+
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th>Ip Address</th>
+                                        <th>Host Name</th>
+                                        <th class="text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let server of servers"
+                                        [class.selected]="server === selectedServer"
+                                        (click)="onSelect(server)">
+                                        <td class="text-center">{{server.Id}}</td>
+                                        <td>{{server.MainIpAddress}}</td>
+                                        <td>{{server.HostName}}</td>
+                                        <td class="td-actions text-right">
+                                            <!--<button type="button" rel="tooltip" class="btn btn-info">
+                                                <i class="material-icons">details</i>
+                                            </button>-->
+                                            <button type="button" rel="tooltip" class="btn btn-success" (click)="gotoDetail()">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button type="button" rel="tooltip" class="btn btn-danger" (click)="delete(server); $event.stopPropagation()">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!--<ul class="heroes">
+        <li *ngFor="let server of servers"
+            [class.selected]="server === selectedServer"
+            (click)="onSelect(server)">
+            <span class="badge">{{server.Id}} </span>
+            <span>{{server.MainIpAddress}}</span>
+            <span> {{server.CustomerId}} </span>
+            <button type="button" class="delete" (click)="delete(server); $event.stopPropagation()">Sil</button>
+        </li>
+    </ul>
+    <div *ngIf="selectedServer">
+        <h2>
+            {{selectedServer.MainIpAddress | uppercase}} seçildi
+        </h2>
+        <button type="button" (click)="gotoDetail()">Detaya Git</button>
+    </div>-->
+    <!--<div class="main-content">
+        <div class="container-fluid">
+            <div class="header text-center">
+                <h3 class="title">Markum</h3>
+                <p class="category">Created using Roboto Font Family</p>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div id="typography">
+                                <div class="card-title">
+                                    <h2>{{title}}</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="tim-typo">
+                                        <h3>
+                                            <span class="tim-note"></span>Benim Sunucularım
+                                        </h3>
+                                    </div>
+                                    <div class="tim-typo">
+                                        <ul>
+                                            <li *ngFor="let server of servers"
+                                                [class.selected]="server === selectedServer"
+                                                (click)="onSelect(server)">
+                                                <span class="tim-note">{{server.id}} </span>{{server.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tim-typo" *ngIf="selectedServer">
+                                        <h2>{{selectedServer.name}} details!</h2>
+                                        <div><label>id: </label>{{selectedServer.id}}</div>
+                                        <div>
+                                            <label>name: </label>
+                                            <input [(ngModel)]="selectedServer.name" placeholder="name" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->

@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+
+export class Server {
+    id: number;
+    name: string;
+}
+
+const SERVERS: Server[] = [
+    { id: 11, name: 'Eisenberg' },
+    { id: 12, name: 'Einstein' },
+    { id: 13, name: 'Nero' },
+    { id: 14, name: 'Magma' },
+    { id: 15, name: 'Tornado' }
+];
+
+@Component({
+    moduleId: module.id,
+    selector: 'servers-cmp',
+    templateUrl: 'servers.component.html'
+})
+
+
+
+export class ServersComponent implements OnInit{
+    ngOnInit(){
+    }
+
+    title = 'Sunucular';
+    servers = SERVERS; 
+}

@@ -1,0 +1,58 @@
+import { Component, OnInit } from '@angular/core';
+
+import { ServerService } from './../../../services/server.service';
+//import { HttpAuthenticationService } from '../../../Services/http-authontication-service';
+
+
+declare var $: any;
+
+@Component({
+    moduleId: module.id,
+    selector: 'addserver-cmp',
+    templateUrl: 'addserver.component.html',
+    //providers: [HttpAuthenticationService]
+})
+
+//class CustomPlan {
+//    Cpu = 1;
+//    Memory = 1;
+//    DiskSpace = 1;
+//    BandWidth = 1;
+//    ExtraIpCount = 1;
+//}
+
+export class AddserverComponent  {
+    templates = [
+        { id: 1, name: "Centos6.7-x64-Minimal" },
+        { id: 2, name: "windows2012-r2-gen1" }        
+    ];
+    selectedValue = null;
+    
+    Data: any;
+    constructor(
+        private serverService: ServerService
+        //private _httpService: HttpAuthenticationService
+    ) { }
+
+    addServer(serverType: string,  nodeName: string, hostName: string): void {
+        nodeName = nodeName.trim();
+        hostName = hostName.trim();
+        
+
+        alert("nodeName, hostName: " + nodeName + ", " + hostName + ", " + serverType);
+
+        /*this.serverService.create(name)
+            .then(() => {
+                alert("Ýþlem baþarýlý");                
+                }
+            );*/
+    }
+
+    //onSetCreateVM() {
+        //this._httpService.getApiAccount().subscribe(data => this.Data = JSON.stringify(data),
+        //    error => alert(error),
+        //    () => console.log("finished")
+        //);
+    //}
+ 
+}

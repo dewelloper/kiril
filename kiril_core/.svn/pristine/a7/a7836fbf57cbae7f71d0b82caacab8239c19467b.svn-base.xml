@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mailenable.com/MEWebAdminService/ListMember" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mailenable.com/MEWebAdminService/ListMember" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mailenable.com/MEWebAdminService/ListMember">
+      <s:element name="AddListMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListMemberAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddListMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddListMemberResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListMemberAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetListMemberResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListMemberObjectProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListMemberAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectProperties" type="tns:ListMember" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ListMember">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MarshalByRefObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ListMemberType" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="Host" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MarshalByRefObject" abstract="true" />
+      <s:element name="GetListMemberObjectPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetListMemberObjectPropertiesResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectProperties" type="tns:ListMember" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListListMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfListMember" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListMemberAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListMemberType" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Top" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLength" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListMember" nillable="true" type="tns:ListMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListListMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListListMemberResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfListMember" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveListMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListMemberAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveListMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveListMemberResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditListMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListMemberAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewListMemberAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPostoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditListMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditListMemberResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddListMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:AddListMember" />
+  </wsdl:message>
+  <wsdl:message name="AddListMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:AddListMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListMember" />
+  </wsdl:message>
+  <wsdl:message name="GetListMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListMemberObjectPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListMemberObjectProperties" />
+  </wsdl:message>
+  <wsdl:message name="GetListMemberObjectPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListMemberObjectPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListListMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:ListListMember" />
+  </wsdl:message>
+  <wsdl:message name="ListListMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:ListListMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveListMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveListMember" />
+  </wsdl:message>
+  <wsdl:message name="RemoveListMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveListMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditListMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:EditListMember" />
+  </wsdl:message>
+  <wsdl:message name="EditListMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:EditListMemberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ListMemberSoap">
+    <wsdl:operation name="AddListMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add a new List Member. Returns 1 if the List Member was successfully added, otherwise returns 0 if it already exists.</wsdl:documentation>
+      <wsdl:input message="tns:AddListMemberSoapIn" />
+      <wsdl:output message="tns:AddListMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve an existing List Member. Returns 1 if the List Member exists, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:GetListMemberSoapIn" />
+      <wsdl:output message="tns:GetListMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListMemberObjectProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the properties of an existing List Member. Returns 1 if the List Member exists, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:GetListMemberObjectPropertiesSoapIn" />
+      <wsdl:output message="tns:GetListMemberObjectPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListListMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of ListMember Objects. Returns 0 if failure, 1 if complete, 2 if partial return</wsdl:documentation>
+      <wsdl:input message="tns:ListListMemberSoapIn" />
+      <wsdl:output message="tns:ListListMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveListMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove an existing List Member. Returns 1 if the List Member was successfully removed, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:RemoveListMemberSoapIn" />
+      <wsdl:output message="tns:RemoveListMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditListMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update an existing List Member.</wsdl:documentation>
+      <wsdl:input message="tns:EditListMemberSoapIn" />
+      <wsdl:output message="tns:EditListMemberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ListMemberSoap" type="tns:ListMemberSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddListMember">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/AddListMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListMember">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/GetListMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListMemberObjectProperties">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/GetListMemberObjectProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListListMember">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/ListListMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveListMember">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/RemoveListMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditListMember">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/EditListMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ListMemberSoap12" type="tns:ListMemberSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddListMember">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/AddListMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListMember">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/GetListMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListMemberObjectProperties">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/GetListMemberObjectProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListListMember">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/ListListMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveListMember">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/RemoveListMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditListMember">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/ListMember/EditListMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ListMember">
+    <wsdl:port name="ListMemberSoap" binding="tns:ListMemberSoap">
+      <soap:address location="https://mcpanel.markum.net/MailEnableService/ListMember.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ListMemberSoap12" binding="tns:ListMemberSoap12">
+      <soap12:address location="https://mcpanel.markum.net/MailEnableService/ListMember.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

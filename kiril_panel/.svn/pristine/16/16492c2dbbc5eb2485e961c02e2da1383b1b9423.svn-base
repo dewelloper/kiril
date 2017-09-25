@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B7D68C2C-EF2E-4094-8F45-8EFA96E0CBFD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>panel</RootNamespace>
+    <AssemblyName>panel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\app.component.js" />
+    <Content Include="src\app\app.module.js" />
+    <Content Include="src\app\dashboard\calendar\calendar.component.html" />
+    <Content Include="src\app\dashboard\calendar\calendar.component.js" />
+    <Content Include="src\app\dashboard\charts\charts.component.html" />
+    <Content Include="src\app\dashboard\charts\charts.component.js" />
+    <Content Include="src\app\dashboard\cloudservice\addcloudservice\addcloudservice.component.html" />
+    <Content Include="src\app\dashboard\cloudservice\cloudserviceplans\cloudserviceplans.component.html" />
+    <Content Include="src\app\dashboard\cloudservice\cloudservices\cloudservices.component.html" />
+    <Content Include="src\app\dashboard\dashboard.component.js" />
+    <Content Include="src\app\dashboard\dashboard.module.js" />
+    <Content Include="src\app\dashboard\domains\dns\dns.component.html" />
+    <Content Include="src\app\dashboard\domains\relocate\relocate.component.html" />
+    <Content Include="src\app\dashboard\hostings\webhosting\webhosting.component.html" />
+    <Content Include="src\app\dashboard\hostings\adddomain\adddomain.component.html" />
+    <Content Include="src\app\dashboard\domains\intransfer\intransfer.component.html" />
+    <Content Include="src\app\dashboard\domains\outtransfer\outtransfer.component.html" />
+    <Content Include="src\app\dashboard\hostings\addsubdomain\addsubdomain.component.html" />
+    <Content Include="src\app\dashboard\hostings\plans\plans.component.html" />
+    <Content Include="src\app\dashboard\domains\parking\parking.component.html" />
+    <Content Include="src\app\dashboard\dashboard.component.html" />
+    <Content Include="src\app\dashboard\licence\addlicence\addlicence.component.html" />
+    <Content Include="src\app\dashboard\licence\licenceplans\licenceplans.component.html" />
+    <Content Include="src\app\dashboard\licence\licences\licences.component.html" />
+    <Content Include="src\app\dashboard\mails\mailhostingaccount\mailhostingaccount.component.html" />
+    <Content Include="src\app\dashboard\mails\addmaildomain\addmaildomain.component.html" />
+    <Content Include="src\app\dashboard\mails\mailplans\mailplans.component.html" />
+    <Content Include="src\app\dashboard\home\home.component.html" />
+    <Content Include="src\app\dashboard\home\home.component.js" />
+    <Content Include="src\app\dashboard\database\databases\databases.component.html" />
+    <Content Include="src\app\dashboard\database\adddatabase\adddatabase.component.html" />
+    <Content Include="src\app\dashboard\database\databaseplans\databaseplans.component.html" />
+    <Content Include="src\app\dashboard\accounts\account\account.component.html" />
+    <Content Include="src\app\dashboard\accounts\accsetting\settingacc.component.html" />
+    <Content Include="src\app\dashboard\refreshprocess\domainrefresh\domainrefresh.component.html" />
+    <Content Include="src\app\dashboard\refreshprocess\servicerefresh\servicerefresh.component.html" />
+    <Content Include="src\app\dashboard\server\servers\server-detail.component.css" />
+    <Content Include="src\app\dashboard\server\servers\server-detail.component.html" />
+    <Content Include="src\app\dashboard\server\servers\servers.component.css" />
+    <Content Include="src\app\dashboard\server\servers\servers.component.html" />
+    <Content Include="src\app\dashboard\server\addserver\addserver.component.html" />
+    <Content Include="src\app\dashboard\server\serverplans\serverplans.component.html" />
+    <Content Include="src\app\dashboard\server\styles.css" />
+    <Content Include="src\app\dashboard\ssl\addssl\addssl.component.html" />
+    <Content Include="src\app\dashboard\ssl\sslplans\sslplans.component.html" />
+    <Content Include="src\app\dashboard\ssl\ssls\ssls.component.html" />
+    <Content Include="src\app\dashboard\ticket\addticket\addticket.component.html" />
+    <Content Include="src\app\dashboard\ticket\ticketdevelopment\ticketdevelopment.component.html" />
+    <Content Include="src\app\dashboard\ticket\tickethelp\tickethelp.component.html" />
+    <Content Include="src\app\dashboard\widges\widges.component.html" />
+    <Content Include="src\app\dashboard\widges\widges.component.js" />
+    <Content Include="src\app\main.js" />
+    <Content Include="src\app\shared\footer\footer.component.html" />
+    <Content Include="src\app\shared\footer\footer.component.js" />
+    <Content Include="src\app\shared\footer\footer.module.js" />
+    <Content Include="src\app\shared\navbar\navbar.component.html" />
+    <Content Include="src\app\shared\navbar\navbar.component.js" />
+    <Content Include="src\app\shared\navbar\navbar.module.js" />
+    <Content Include="src\app\sidebar\sidebar-routes.config.js" />
+    <Content Include="src\app\sidebar\sidebar.component.html" />
+    <Content Include="src\app\sidebar\sidebar.component.js" />
+    <Content Include="src\app\sidebar\sidebar.metadata.js" />
+    <Content Include="src\app\sidebar\sidebar.module.js" />
+    <Content Include="src\assets\css\bootstrap.min.css" />
+    <Content Include="src\assets\css\demo.css" />
+    <Content Include="src\assets\css\material-dashboard.css" />
+    <Content Include="src\assets\css\material-dashboard.min.css">
+      <DependentUpon>material-dashboard.css</DependentUpon>
+    </Content>
+    <Content Include="src\assets\img\angular2-logo-white.png" />
+    <Content Include="src\assets\img\angular2-logo.png" />
+    <Content Include="src\assets\img\apple-icon.png" />
+    <Content Include="src\assets\img\bg-pricing.jpeg" />
+    <Content Include="src\assets\img\card-1.jpeg" />
+    <Content Include="src\assets\img\card-2.jpeg" />
+    <Content Include="src\assets\img\card-3.jpeg" />
+    <Content Include="src\assets\img\default-avatar.png" />
+    <Content Include="src\assets\img\faces\avatar.jpg" />
+    <Content Include="src\assets\img\faces\card-profile1-square.jpg" />
+    <Content Include="src\assets\img\faces\card-profile2-square.jpg" />
+    <Content Include="src\assets\img\faces\marc.jpg" />
+    <Content Include="src\assets\img\favicon.png" />
+    <Content Include="src\assets\img\flags\AD.png" />
+    <Content Include="src\assets\img\flags\AE.png" />
+    <Content Include="src\assets\img\flags\AG.png" />
+    <Content Include="src\assets\img\flags\AM.png" />
+    <Content Include="src\assets\img\flags\AR.png" />
+    <Content Include="src\assets\img\flags\AT.png" />
+    <Content Include="src\assets\img\flags\AU.png" />
+    <Content Include="src\assets\img\flags\BE.png" />
+    <Content Include="src\assets\img\flags\BF.png" />
+    <Content Include="src\assets\img\flags\BG.png" />
+    <Content Include="src\assets\img\flags\BO.png" />
+    <Content Include="src\assets\img\flags\BR.png" />
+    <Content Include="src\assets\img\flags\CA.png" />
+    <Content Include="src\assets\img\flags\CD.png" />
+    <Content Include="src\assets\img\flags\CG.png" />
+    <Content Include="src\assets\img\flags\CH.png" />
+    <Content Include="src\assets\img\flags\CL.png" />
+    <Content Include="src\assets\img\flags\CM.png" />
+    <Content Include="src\assets\img\flags\CN.png" />
+    <Content Include="src\assets\img\flags\CO.png" />
+    <Content Include="src\assets\img\flags\CZ.png" />
+    <Content Include="src\assets\img\flags\DE.png" />
+    <Content Include="src\assets\img\flags\DJ.png" />
+    <Content Include="src\assets\img\flags\DK.png" />
+    <Content Include="src\assets\img\flags\DZ.png" />
+    <Content Include="src\assets\img\flags\EE.png" />
+    <Content Include="src\assets\img\flags\EG.png" />
+    <Content Include="src\assets\img\flags\ES.png" />
+    <Content Include="src\assets\img\flags\FI.png" />
+    <Content Include="src\assets\img\flags\FR.png" />
+    <Content Include="src\assets\img\flags\GA.png" />
+    <Content Include="src\assets\img\flags\GB.png" />
+    <Content Include="src\assets\img\flags\GM.png" />
+    <Content Include="src\assets\img\flags\GT.png" />
+    <Content Include="src\assets\img\flags\HN.png" />
+    <Content Include="src\assets\img\flags\HT.png" />
+    <Content Include="src\assets\img\flags\HU.png" />
+    <Content Include="src\assets\img\flags\ID.png" />
+    <Content Include="src\assets\img\flags\IE.png" />
+    <Content Include="src\assets\img\flags\IL.png" />
+    <Content Include="src\assets\img\flags\IN.png" />
+    <Content Include="src\assets\img\flags\IQ.png" />
+    <Content Include="src\assets\img\flags\IR.png" />
+    <Content Include="src\assets\img\flags\IT.png" />
+    <Content Include="src\assets\img\flags\JM.png" />
+    <Content Include="src\assets\img\flags\JO.png" />
+    <Content Include="src\assets\img\flags\JP.png" />
+    <Content Include="src\assets\img\flags\KG.png" />
+    <Content Include="src\assets\img\flags\KN.png" />
+    <Content Include="src\assets\img\flags\KP.png" />
+    <Content Include="src\assets\img\flags\KR.png" />
+    <Content Include="src\assets\img\flags\KW.png" />
+    <Content Include="src\assets\img\flags\KZ.png" />
+    <Content Include="src\assets\img\flags\LA.png" />
+    <Content Include="src\assets\img\flags\LB.png" />
+    <Content Include="src\assets\img\flags\LC.png" />
+    <Content Include="src\assets\img\flags\LS.png" />
+    <Content Include="src\assets\img\flags\LU.png" />
+    <Content Include="src\assets\img\flags\LV.png" />
+    <Content Include="src\assets\img\flags\MG.png" />
+    <Content Include="src\assets\img\flags\MK.png" />
+    <Content Include="src\assets\img\flags\ML.png" />
+    <Content Include="src\assets\img\flags\MM.png" />
+    <Content Include="src\assets\img\flags\MT.png" />
+    <Content Include="src\assets\img\flags\MX.png" />
+    <Content Include="src\assets\img\flags\NA.png" />
+    <Content Include="src\assets\img\flags\NE.png" />
+    <Content Include="src\assets\img\flags\NG.png" />
+    <Content Include="src\assets\img\flags\NI.png" />
+    <Content Include="src\assets\img\flags\NL.png" />
+    <Content Include="src\assets\img\flags\NO.png" />
+    <Content Include="src\assets\img\flags\OM.png" />
+    <Content Include="src\assets\img\flags\PA.png" />
+    <Content Include="src\assets\img\flags\PE.png" />
+    <Content Include="src\assets\img\flags\PG.png" />
+    <Content Include="src\assets\img\flags\PK.png" />
+    <Content Include="src\assets\img\flags\PL.png" />
+    <Content Include="src\assets\img\flags\PT.png" />
+    <Content Include="src\assets\img\flags\PY.png" />
+    <Content Include="src\assets\img\flags\QA.png" />
+    <Content Include="src\assets\img\flags\RO.png" />
+    <Content Include="src\assets\img\flags\RU.png" />
+    <Content Include="src\assets\img\flags\RW.png" />
+    <Content Include="src\assets\img\flags\SA.png" />
+    <Content Include="src\assets\img\flags\SE.png" />
+    <Content Include="src\assets\img\flags\SG.png" />
+    <Content Include="src\assets\img\flags\SL.png" />
+    <Content Include="src\assets\img\flags\SN.png" />
+    <Content Include="src\assets\img\flags\SO.png" />
+    <Content Include="src\assets\img\flags\SV.png" />
+    <Content Include="src\assets\img\flags\TD.png" />
+    <Content Include="src\assets\img\flags\TJ.png" />
+    <Content Include="src\assets\img\flags\TL.png" />
+    <Content Include="src\assets\img\flags\TR.png" />
+    <Content Include="src\assets\img\flags\TZ.png" />
+    <Content Include="src\assets\img\flags\UA.png" />
+    <Content Include="src\assets\img\flags\US.png" />
+    <Content Include="src\assets\img\flags\VE.png" />
+    <Content Include="src\assets\img\flags\VN.png" />
+    <Content Include="src\assets\img\flags\YE.png" />
+    <Content Include="src\assets\img\header-doc.jpeg" />
+    <Content Include="src\assets\img\image_placeholder.jpg" />
+    <Content Include="src\assets\img\lock.jpeg" />
+    <Content Include="src\assets\img\login.jpeg" />
+    <Content Include="src\assets\img\mask.png" />
+    <Content Include="src\assets\img\new_logo.png" />
+    <Content Include="src\assets\img\placeholder.jpg" />
+    <Content Include="src\assets\img\product1.jpg" />
+    <Content Include="src\assets\img\product2.jpg" />
+    <Content Include="src\assets\img\product3.jpg" />
+    <Content Include="src\assets\img\register.jpeg" />
+    <Content Include="src\assets\img\sidebar-1.jpg" />
+    <Content Include="src\assets\img\sidebar-2.jpg" />
+    <Content Include="src\assets\img\sidebar-3.jpg" />
+    <Content Include="src\assets\img\sidebar-4.jpg" />
+    <Content Include="src\assets\img\sidebar_owl.jpg" />
+    <Content Include="src\assets\js\core\arrive.js" />
+    <Content Include="src\assets\js\core\bootstrap.min.js" />
+    <Content Include="src\assets\js\core\jquery-3.1.1.min.js" />
+    <Content Include="src\assets\js\core\jquery-ui.min.js" />
+    <Content Include="src\assets\js\core\jquery.validate.min.js" />
+    <Content Include="src\assets\js\core\material.min.js" />
+    <Content Include="src\assets\js\core\perfect-scrollbar.jquery.min.js" />
+    <Content Include="src\assets\js\demo.js" />
+    <Content Include="src\assets\js\init\charts.js" />
+    <Content Include="src\assets\js\init\initAniCharts.js" />
+    <Content Include="src\assets\js\init\initChartsPage.js" />
+    <Content Include="src\assets\js\init\initCollapseArea.js" />
+    <Content Include="src\assets\js\init\initDataTable.js" />
+    <Content Include="src\assets\js\init\initDatetimepickers.js" />
+    <Content Include="src\assets\js\init\initFullCalendar.js" />
+    <Content Include="src\assets\js\init\initFullScreenpage.js" />
+    <Content Include="src\assets\js\init\initMaps.js" />
+    <Content Include="src\assets\js\init\initMenu.js" />
+    <Content Include="src\assets\js\init\initSliders.js" />
+    <Content Include="src\assets\js\init\initTooltips.js" />
+    <Content Include="src\assets\js\init\initVectorMap.js" />
+    <Content Include="src\assets\js\init\initWizard.js" />
+    <Content Include="src\assets\js\init\notify.js" />
+    <Content Include="src\assets\js\material-dashboard-angular.js" />
+    <Content Include="src\assets\js\plugins\bootstrap-datetimepicker.js" />
+    <Content Include="src\assets\js\plugins\bootstrap-notify.js" />
+    <Content Include="src\assets\js\plugins\chartist.min.js" />
+    <Content Include="src\assets\js\plugins\es6-promise-auto.min.js" />
+    <Content Include="src\assets\js\plugins\fullcalendar.min.js" />
+    <Content Include="src\assets\js\plugins\jasny-bootstrap.min.js" />
+    <Content Include="src\assets\js\plugins\jquery-jvectormap.js" />
+    <Content Include="src\assets\js\plugins\jquery.bootstrap-wizard.js" />
+    <Content Include="src\assets\js\plugins\jquery.datatables.js" />
+    <Content Include="src\assets\js\plugins\jquery.select-bootstrap.js" />
+    <Content Include="src\assets\js\plugins\jquery.tagsinput.js" />
+    <Content Include="src\assets\js\plugins\moment.min.js" />
+    <Content Include="src\assets\js\plugins\nouislider.min.js" />
+    <Content Include="src\assets\js\plugins\sweetalert2.min.js" />
+    <Content Include="src\assets\js\sidebar-moving-tab.js" />
+    <Content Include="Logout.aspx" />
+    <Content Include="systemjs-text-plugin.js" />
+    <Content Include="default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="indexTemplate.html" />
+    <Content Include="lock.html" />
+    <Content Include="login.html" />
+    <Content Include="pricing.html" />
+    <Content Include="register.html" />
+    <Content Include="systemjs.config.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="design.Master.cs">
+      <DependentUpon>design.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="design.Master.designer.cs">
+      <DependentUpon>design.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="design.Master" />
+    <Content Include="package.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="src\app\app.component.js.map" />
+    <Content Include="src\app\app.module.js.map" />
+    <Content Include="src\app\dashboard\calendar\calendar.component.js.map" />
+    <Content Include="src\app\dashboard\charts\charts.component.js.map" />
+    <Content Include="src\app\dashboard\home\home.component.js.map" />
+    <Content Include="src\app\dashboard\widges\widges.component.js.map" />
+    <Content Include="src\app\main.js.map" />
+    <Content Include="src\app\shared\footer\footer.component.js.map" />
+    <Content Include="src\app\shared\footer\footer.module.js.map" />
+    <Content Include="src\app\shared\navbar\navbar.component.js.map" />
+    <Content Include="src\app\shared\navbar\navbar.module.js.map" />
+    <Content Include="src\app\sidebar\sidebar-routes.config.js.map" />
+    <Content Include="src\app\sidebar\sidebar.component.js.map" />
+    <Content Include="src\app\sidebar\sidebar.metadata.js.map" />
+    <Content Include="src\app\sidebar\sidebar.module.js.map" />
+    <Content Include="src\assets\css\material-dashboard.css.map" />
+    <Content Include="src\assets\img\.DS_Store" />
+    <Content Include="src\assets\sass\material-dashboard.scss" />
+    <Content Include="src\assets\sass\material-dashboard\mixins\_chartist.scss" />
+    <Content Include="src\assets\sass\material-dashboard\mixins\_sidebar-color.scss" />
+    <Content Include="src\assets\sass\material-dashboard\mixins\_transparency.scss" />
+    <Content Include="src\assets\sass\material-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_animate.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_chartist.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_datatables.net.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_fullcalendar.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_jquery.jvectormap.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_perfect-scrollbar.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_plugin-datetime-picker.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_plugin-nouislider.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_select-bootstrap.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_sweetalert2.scss" />
+    <Content Include="src\assets\sass\material-dashboard\plugins\_wizard-card.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_alerts.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_buttons.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_cards.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_checkboxes.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_colors.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_dialogs.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_dropdown.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_fileupload.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_footers.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_forms.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_inputs-size.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_inputs.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_labels.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_misc.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_mixins.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_navbars.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_pages.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_pagination.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_panels.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_pills.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_popups.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_progress.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_radios.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_responsive.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_ripples.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_shadows.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_tables.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_tabs.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_tags.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_timeline.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_togglebutton.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_typography.scss" />
+    <Content Include="src\assets\sass\material-dashboard\_variables.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\panel_deployment.pubxml" />
+    <Content Include="src\assets\locale\messages.de.xlf" />
+    <Content Include="src\assets\locale\messages.en.xlf" />
+    <Content Include="src\assets\locale\messages.tr.xlf" />
+    <Content Include="src\app\dashboard\dashboard.component.js.map" />
+    <Content Include="src\app\dashboard\dashboard.module.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\canactivateviaauthguard.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\calendar\calendar.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\charts\charts.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\cloudservice\addcloudservice\addcloudservice.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\cloudservice\cloudserviceplans\cloudserviceplans.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\cloudservice\cloudservices\cloudservices.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\domains\dns\dns.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\domains\relocate\relocate.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\hostings\webhosting\webhosting.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\hostings\adddomain\adddomain.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\domains\intransfer\intransfer.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\domains\outtransfer\outtransfer.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\hostings\addsubdomain\addsubdomain.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\hostings\plans\plans.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\domains\parking\parking.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\dashboard.module.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\dashboard.routes.ts" />
+    <TypeScriptCompile Include="src\app\in-memory-data.service.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\licence\addlicence\addlicence.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\licence\licenceplans\licenceplans.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\licence\licences\licences.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\mails\mailhostingaccount\mailhostingaccount.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\mails\addmaildomain\addmaildomain.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\mails\mailplans\mailplans.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\database\databases\databases.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\database\adddatabase\adddatabase.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\database\databaseplans\databaseplans.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\accounts\account\account.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\accounts\accsetting\settingacc.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\refreshprocess\domainrefresh\domainrefresh.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\refreshprocess\servicerefresh\servicerefresh.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\server\servers\server-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\services\server.service.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\server.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\server\servers\servers.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\server\addserver\addserver.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\server\serverplans\serverplans.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\ssl\addssl\addssl.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\ssl\sslplans\sslplans.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\ssl\ssls\ssls.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\ticket\addticket\addticket.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\ticket\ticketdevelopment\ticketdevelopment.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\ticket\tickethelp\tickethelp.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\widges\widges.component.ts" />
+    <TypeScriptCompile Include="src\app\i18n-providers.ts" />
+    <TypeScriptCompile Include="src\app\main.ts" />
+    <TypeScriptCompile Include="src\app\services\http-authontication-service.ts" />
+    <TypeScriptCompile Include="src\app\shared\footer\footer.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\footer\footer.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\navbar\navbar.module.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\sidebar-routes.config.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\sidebar.component.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\sidebar.metadata.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\sidebar.module.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\charts.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initAniCharts.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initChartsPage.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initCollapseArea.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initDataTable.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initDatetimepickers.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initFullCalendar.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initFullScreenpage.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initMaps.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initSliders.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initTooltips.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initVectorMap.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\initWizard.d.ts" />
+    <TypeScriptCompile Include="src\assets\js\init\notify.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62308</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62310/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

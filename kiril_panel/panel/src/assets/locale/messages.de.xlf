@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="af2ccf4b5dba59616e92cf1531505af02da8f6d2" datatype="html">
+        <source>Hello i18n!</source>
+        <target>Hallo</target>
+        <note priority="1" from="description">An introduction header for this sample</note>
+        <note priority="1" from="meaning">User welcome</note>
+      </trans-unit>
+      <trans-unit id="ba0cc104d3d69bf669f97b8d96a4c5d8d9559aa3" datatype="html">
+        <source>I don&apos;t output any element</source>
+        <target>Ich stelle kein Element aus</target>
+      </trans-unit>
+      <trans-unit id="22229e9badc0cffbbf846dbc81ad75c5e969fa99" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>
+          Mein konto
+        </target>
+      </trans-unit>
+      <trans-unit id="f78da46d5d1fa80e6ef13ba385ac578ff829c5a9" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+        <target>Ausloggen</target>
+      </trans-unit>
+      <trans-unit id="5a21884b343c6f4f92318cdd4c5591a0e78e02c3" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Hauptseite</target>
+      </trans-unit>      
+      <trans-unit id="17e2a1bd98f8f1a91dbebcd1d84a9e6debbde5ee" datatype="html">
+        <source>
+          Hosting Management
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>
+          Host verwalten
+        </target>
+      </trans-unit>
+      <trans-unit id="6221b4462d473370fd32dc79b5338f3748801344" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Web-Host-Konten</target>
+      </trans-unit>
+      <trans-unit id="14e3768fcb63570e3a8b7d80b151d8a5225b2845" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Domäne hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="9045d350252db2946306fa89be604a2ba6836c39" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Subdomäne hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="6a4ba9bef16681a3fd751657af8b5a734d1c84eb" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Pläne</target>
+      </trans-unit>
+      <trans-unit id="a3acc4ea7dd9030949f1f95b58f6b6d2c9f46e5e" datatype="html">
+        <source>
+          Domain Management<x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>Domain verwalten</target>
+      </trans-unit>
+      <trans-unit id="e8aeb36954a8b5fcc6363e924e0725c6cf2c7f02" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Aus Übertragung</target>
+      </trans-unit>
+      <trans-unit id="02dcc127502dc2398b189c6fc61ea22e6a9396ef" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>im Übertragung</target>
+      </trans-unit>
+      <trans-unit id="ed8099ec2e09ca2c3cee23648f91bcf21532ef30" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Parken Bedienung</target>
+      </trans-unit>
+      <trans-unit id="463e66f32bea01d3a6cf3fb34e0ee5075593e962" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Ausrichtung</target>
+      </trans-unit>
+      <trans-unit id="9a8cfae69145e838505207ee1e8e8b6fe610d52f" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>DNS-Verwaltung</target>
+      </trans-unit>
+      <trans-unit id="1d2b1aeeb4732b07c41f10d6f366718514c73de4" datatype="html">
+        <source>
+          Mail Management<x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>Mail verwalten</target>
+      </trans-unit>
+      <trans-unit id="b208581d43866526c995a5ffc07ef74fa9fda919" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Email Konten</target>
+      </trans-unit>
+      <trans-unit id="6718b84998c68bbbd34fb8fa63ec4a04cf666be9" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Email Konten hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="1bae95e0fb5555450f713d9f950155838c3e2233" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Pläne</target>
+      </trans-unit>
+      <trans-unit id="217b3577a0ac205590d645da7de0f80efcf254bc" datatype="html">
+        <source>
+          Server Management
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>Server verwalten</target>
+      </trans-unit>
+      <trans-unit id="1a85d6d4420a8c6f38abc7a25e7769687c92735d" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Server</target>
+      </trans-unit>
+      <trans-unit id="2f3ea03df360fdf2159983c3b36dcd8d2c4126a2" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Server hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="ad151a06e9d693f1a390eaf90f179d2d5e9ba854" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Pläne</target>
+      </trans-unit>
+      <trans-unit id="58617982876cd50bb3b4651c36cb1872ca29f454" datatype="html">
+        <source>
+          Databases
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>
+          Datenbank-Management
+        </target>
+      </trans-unit>
+      <trans-unit id="847ea5d1826fd9dfeec04063182ad6f01dfe8bae" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Datenbankliste</target>
+      </trans-unit>
+      <trans-unit id="ff2897ae0e35660c51f85cd700d884257f09d97b" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Datenbank hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="c287744197ac90817e51a53c75dc36296b3316b8" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Pläne</target>
+      </trans-unit>
+      <trans-unit id="7b84dc82f3fb06001ecdb4a23da6b5b779112fd9" datatype="html">
+        <source>
+          SSL Management
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>SSL verwalten</target>
+      </trans-unit>
+      <trans-unit id="99ffdafccc886c2f15abe469809de3cea6fd09b3" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Zertifizierungen</target>
+      </trans-unit>
+      <trans-unit id="d0fe6700e3468bf36dd0d1a2194782791167ae8c" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>In Zertifizierung</target>
+      </trans-unit>
+      <trans-unit id="9f5881a06ed4398e891f2722b73ed78842c29c68" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Pläne</target>
+      </trans-unit>
+      <trans-unit id="5edf2588cf517a5fe22fa7e25bd980d2e3db1031" datatype="html">
+        <source>
+          Licence Management
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>
+          Lizenzverwaltung
+        </target>
+      </trans-unit>
+      <trans-unit id="ecfedb2e75d7dbd605fdf6a22c230e1a3ea9fc0a" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Zulassung</target>
+      </trans-unit>
+      <trans-unit id="295cf606bb6dab7dfb8e7da33a068142545c12c6" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>
+          In Lizenz
+        </target>
+      </trans-unit>
+      <trans-unit id="701083c60fdc8d10e09489a7e98ea3e22a21ca42" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Pläne</target>
+      </trans-unit>
+      <trans-unit id="0d25f8d49e33554b0611acb05f8f95d088270636" datatype="html">
+        <source>
+          Tickets
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>
+          Karten verwalten
+        </target>
+      </trans-unit>
+      <trans-unit id="e9273d22100c41e906e2959bd30aac15f32d7926" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>In Tickets</target>
+      </trans-unit>
+      <trans-unit id="f3e7a6ff27a7242316841d70485b1158f7433e7d" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Interviewanfragen</target>
+      </trans-unit>
+      <trans-unit id="21f7a25ffecd3f11587650d5037f4f0769f2371f" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Hilfe</target>
+      </trans-unit>
+      <trans-unit id="8111def6097c75d6717e7ab00b39b46313a4a50b" datatype="html">
+        <source>
+          Cloud Services
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>
+          Cloud-Service-Management
+        </target>
+      </trans-unit>
+      <trans-unit id="f151a8e3cebe2cde95f4cd0b76bb058885884319" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>In Cloud Services</target>
+      </trans-unit>
+      <trans-unit id="ebf76370def7563d333ea773daaeb7cf7971648b" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Pläne</target>
+      </trans-unit>
+      <trans-unit id="8a2b9f839e5b10b14d30f99e1bb9b95eb410b2f2" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>
+          Cloud Services
+        </target>
+      </trans-unit>
+      <trans-unit id="2e2eb5d79fd5f7daa430d02674655cced01d432e" datatype="html">
+        <source>
+          Refresh Process
+          <x id="START_BOLD_TEXT" ctype="x-b"/><x id="CLOSE_BOLD_TEXT" ctype="x-b"/>
+        </source>
+        <target>Erneuerungsprozess</target>
+      </trans-unit>
+      <trans-unit id="015f3762897be76c82fd44327de8b54318cf8342" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>
+          Service Renewal
+        </target>
+      </trans-unit>
+      <trans-unit id="e46409d1a70a2b3e6bd17145cfe5ba4ef6d463e3" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <target>Domain Renewal</target>
+      </trans-unit>
+      <trans-unit id="28e57a4d31452cc0b33676942ff6ddbc9a5ca56d" datatype="html">
+        <source>Main Page</source>
+        <target>Hauptseite</target>
+      </trans-unit>
+      <trans-unit id="deb192623e479390a7636375e10d431f71a6016f" datatype="html">
+        <source>About</source>
+        <target>Über</target>
+      </trans-unit>
+      <trans-unit id="578b619e7e5f1f65bdf3471f38682444f5786782" datatype="html">
+        <source>References</source>
+        <target>Referenzen</target>
+      </trans-unit>
+      <trans-unit id="8d91ecabda528e3f866b51cba77c68c886eec48b" datatype="html">
+        <source>Blog</source>
+        <target>Blöcke</target>
+      </trans-unit>
+      <trans-unit id="3e6340359a6f47848338de77cd97b55460c11a0c" datatype="html">
+        <source>Markum, all rights reserved</source>
+        <target>Markum, Alle Rechte vorbehalten</target>
+      </trans-unit>      
+      <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
+        <source>Search</source>
+        <target>Suche</target>
+        <note priority="1" from="description">Search placeholder</note>
+      </trans-unit>      
+    </body>
+  </file>
+</xliff>

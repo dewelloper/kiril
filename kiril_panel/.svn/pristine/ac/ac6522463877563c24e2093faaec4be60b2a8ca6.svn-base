@@ -1,0 +1,14 @@
+import { Component, OnInit } from '@angular/core';
+import initVectorMap = require('../../../../assets/js/init/initVectorMap.js');
+
+@Component({
+    moduleId: module.id,
+    selector: 'databaseplans-cmp',
+    templateUrl: './databaseplans.component.html'
+})
+
+export class DatabaseplansComponent implements OnInit{
+    ngOnInit(){
+        initVectorMap();
+    }
+}

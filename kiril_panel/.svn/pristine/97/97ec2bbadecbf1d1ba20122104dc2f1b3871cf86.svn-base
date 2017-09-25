@@ -1,0 +1,1 @@
+{"version":3,"file":"tickethelp.component.js","sourceRoot":"","sources":["tickethelp.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,wCAA0C;AAS1C,IAAa,mBAAmB,GAAhC;CACC,CAAA;AADY,mBAAmB;IAN/B,gBAAS,CAAC;QACP,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAE,gBAAgB;QAC1B,WAAW,EAAE,2BAA2B;KAC3C,CAAC;GAEW,mBAAmB,CAC/B;AADY,kDAAmB"}

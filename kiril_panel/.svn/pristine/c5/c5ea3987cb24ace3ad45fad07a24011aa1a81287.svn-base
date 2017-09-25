@@ -1,0 +1,1 @@
+{"version":3,"file":"adddomain.component.js","sourceRoot":"","sources":["adddomain.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,wCAA0C;AAQ1C,IAAa,kBAAkB,GAA/B;CAAiC,CAAA;AAApB,kBAAkB;IAN9B,gBAAS,CAAC;QACP,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAE,eAAe;QACzB,WAAW,EAAE,0BAA0B;KAC1C,CAAC;GAEW,kBAAkB,CAAE;AAApB,gDAAkB"}

@@ -1,0 +1,51 @@
+{
+  "name": "material-dashboard-pro-angular2",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "i18n": "ng-xi18n"
+  },
+  "license": "SEE LICENSE IN LICENSE.pdf",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/creativetimofficial/material-dashboard-pro-angular.git"
+  },
+  "dependencies": {
+    "@angular/common": "^2.4.10",
+    "@angular/compiler": "^2.4.10",
+    "@angular/compiler-cli": "^4.2.5",
+    "@angular/core": "^2.4.10",
+    "@angular/forms": "^2.4.10",
+    "@angular/http": "^2.4.10",
+    "@angular/platform-browser": "^2.4.10",
+    "@angular/platform-browser-dynamic": "^2.4.10",
+    "@angular/platform-server": "^4.2.5",
+    "@angular/router": "^3.4.10",
+    "@angular/upgrade": "^2.4.10",
+    "angular-in-memory-web-api": "^0.3.1",
+    "angular2-google-maps": "^0.17.0",
+    "chartist": "^0.9.8",
+    "core-js": "^2.4.1",
+    "i18n": "^0.8.3",
+    "jquery": "^3.1.1",
+    "ng-chartist": "^1.1.0",
+    "package.json": "^2.0.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs-es6": "^5.0.0-alpha.12",
+    "systemjs": "^0.19.47",
+    "zone.js": "^0.7.8"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.0.0",
+    "@types/chartist": "~0.9.33",
+    "@types/core-js": "^0.9.42",
+    "@types/jquery": "~2.0.34",
+    "@types/node": "~6.0.45",
+    "concurrently": "~3.0.0",
+    "lite-server": "~2.2.2",
+    "typescript": "^2.4.0"
+  }
+}

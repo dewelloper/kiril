@@ -1,0 +1,1 @@
+{"version":3,"file":"domainrefresh.component.js","sourceRoot":"","sources":["domainrefresh.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,wCAA0C;AAQ1C,IAAa,sBAAsB,GAAnC;CAAuC,CAAA;AAA1B,sBAAsB;IANlC,gBAAS,CAAC;QACP,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAE,mBAAmB;QAC7B,WAAW,EAAE,8BAA8B;KAC9C,CAAC;GAEW,sBAAsB,CAAI;AAA1B,wDAAsB"}

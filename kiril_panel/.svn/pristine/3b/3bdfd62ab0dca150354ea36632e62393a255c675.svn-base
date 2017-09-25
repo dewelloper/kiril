@@ -1,0 +1,14 @@
+import { Component, OnInit } from '@angular/core';
+import initDataTable = require('../../../../assets/js/init/initDataTable.js');
+
+@Component({
+    moduleId: module.id,
+    selector: 'servers-cmp',
+    templateUrl: 'servers.component.html'
+})
+
+export class ServersComponent implements OnInit{
+    ngOnInit(){
+        initDataTable();
+    }
+}

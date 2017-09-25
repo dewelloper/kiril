@@ -1,0 +1,47 @@
+﻿<div *ngIf="server">
+    <h2>{{server.MainIpAddress}} details! </h2>
+    <div>
+        <label>Id: </label>
+        <span >{{server.Id}} </span>                
+    </div>
+    <div>
+        <label>Extra Ip Address: </label>
+        <span >{{server.ExtraIpAddress}} </span>        
+    </div>
+    <div>
+        <label>Root Password: </label>
+        <span>{{server.RootPassword}} </span>
+    </div>
+    <div>
+        <label>Virtual Server Id: </label>
+        <span>{{server.VirtualServerId}} </span>
+    </div>
+    <div>
+        <label>Console User: </label>
+        <span>{{server.ConsoleUser}} </span>
+    </div>
+    <div>
+        <label>Host Name: </label>
+        <span>{{server.HostName}} </span>
+    </div>
+    <div>
+        <label>Virt Id: </label>
+        <span>{{server.VirtId}} </span>
+    </div>
+    <div>
+        <label>Node Id: </label>
+        <span>{{server.NodeId}} </span>
+    </div>
+    <div>
+        <label>Create Date: </label>
+        <span>{{server.CreateDate}} </span>
+    </div>
+
+
+    <!--<div>
+        <label>name: </label>
+        <input [(ngModel)]="server.name" placeholder="name" />
+    </div>-->
+    <button type="button" (click)="goBack()">Geri</button>
+    <button type="button" (click)="save()">Kaydet</button>
+</div>

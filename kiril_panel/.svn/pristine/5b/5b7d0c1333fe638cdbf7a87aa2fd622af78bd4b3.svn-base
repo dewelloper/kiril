@@ -1,0 +1,1 @@
+{"version":3,"file":"addcloudservice.component.js","sourceRoot":"","sources":["addcloudservice.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,wCAA0C;AAS1C,IAAa,wBAAwB,GAArC;CACC,CAAA;AADY,wBAAwB;IANpC,gBAAS,CAAC;QACP,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAE,qBAAqB;QAC/B,WAAW,EAAE,gCAAgC;KAChD,CAAC;GAEW,wBAAwB,CACpC;AADY,4DAAwB"}

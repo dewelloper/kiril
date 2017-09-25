@@ -1,0 +1,1 @@
+{"version":3,"file":"sidebar.module.js","sourceRoot":"","sources":["sidebar.module.ts"],"names":[],"mappings":";;;;;;;;AAAA,wCAAyC;AACzC,4CAA+C;AAC/C,4CAA+C;AAC/C,2DAAuD;AAQvD,IAAa,aAAa,GAA1B;CAA6B,CAAA;AAAhB,aAAa;IANzB,eAAQ,CAAC;QACN,OAAO,EAAE,CAAE,qBAAY,EAAE,qBAAY,CAAE;QACvC,YAAY,EAAE,CAAE,oCAAgB,CAAE;QAClC,OAAO,EAAE,CAAE,oCAAgB,CAAE;KAChC,CAAC;GAEW,aAAa,CAAG;AAAhB,sCAAa"}

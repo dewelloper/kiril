@@ -1,0 +1,65 @@
+﻿<div class="main-content">
+    <div class="container-fluid">
+        <div class="header text-center">
+            <h3 class="title">Markum</h3>
+            <p class="category">Created using Roboto Font Family</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div id="typography">
+                            <div class="card-title">
+                                <h2>{{title}}</h2>
+                            </div>
+                            <div class="row">
+                                <div class="tim-typo">
+                                    <h3>
+                                        <span class="tim-note"></span>Benim Sunucularım
+                                    </h3>
+                                </div>
+                                <div class="tim-typo">
+                                    <ul>
+                                        <li *ngFor="let server of servers">
+                                            <span class="tim-note">{{server.id}} </span>{{server.name}}
+                                        </li>                                        
+                                    </ul>
+                                </div>
+                                <div class="tim-typo">
+                                    <h3>
+                                        <span class="tim-note">Header 3</span>The Life of Material Kit
+                                    </h3>
+                                </div>                                
+                                <div class="tim-typo">
+                                    <p>
+                                        <span class="tim-note">Paragraph</span>
+                                        I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
+                                    </p>
+                                </div>
+                                <div class="tim-typo">
+                                    <span class="tim-note">Quote</span>
+                                    <blockquote>
+                                        <p>
+                                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
+                                        </p>
+                                        <small>
+                                            Kanye West, Musician
+                                        </small>
+                                    </blockquote>
+                                </div>                                
+                                <div class="tim-typo">
+                                    <h2>
+                                        <span class="tim-note">Small Tag</span>
+                                        Header with small subtitle
+                                        <br>
+                                        <small>Use "small" tag for the headers</small>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

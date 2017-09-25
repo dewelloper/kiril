@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mailenable.com/MEWebAdminService/List" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mailenable.com/MEWebAdminService/List" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mailenable.com/MEWebAdminService/List">
+      <s:element name="AddList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListType" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModeratorAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DefaultAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddListResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetListResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListObjectProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectProperties" type="tns:List" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="List">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MarshalByRefObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Host" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ListType" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="ListStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="ModeratorAddress" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="HeaderAnnotationStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="HeaderAnnotation" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FooterAnnotationStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="FooterAnnotation" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListAddress" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SubscribeMessageFileStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="SubscribeMessageFile" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="UnsubscribeMessageFileStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnsubscribeMessageFile" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SubjectSuffixStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="SubjectSuffix" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SubjectPrefixStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="SubjectPrefix" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Owner" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="HelpMessageFileStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="HelpMessageFile" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RemovalMessageFileStatus" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="RemovalMessageFile" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReplyToMode" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="MaxMessageSize" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="PostingMode" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="SubScriptionMode" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AuthenticationMode" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DigestMode" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="DigestMailbox" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DigestAnnotationMode" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="DigestAttachmentMode" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="DigestMessageSeparationMode" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="DigestSchedulingStatus" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="DigestSchedulingMode" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="DigestSchedulingInterval" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="FromAddressMode" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MarshalByRefObject" abstract="true" />
+      <s:element name="GetListObjectPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetListObjectPropertiesResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectProperties" type="tns:List" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfList" />
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Top" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLength" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="List" nillable="true" type="tns:List" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListListResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectList" type="tns:ArrayOfList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewListType" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewStatus" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewHeaderAnnotationStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewHeaderAnnotation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewFooterAnnotationStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewFooterAnnotation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewModeratorAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewDefaultAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditListResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditListFull">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewListType" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewStatus" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewHeaderAnnotationStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewHeaderAnnotation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewFooterAnnotationStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewFooterAnnotation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewModeratorAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewDefaultAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewSubscribeMessageFileStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewSubscribeMessageFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewUnsubscribeMessageFileStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewUnsubscribeMessageFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewSubjectSuffixStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewSubjectSuffix" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewSubjectPrefixStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewSubjectPrefix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewOwner" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewHelpMessageFileStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewHelpMessageFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewRemovalMessageFileStatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewRemovalMessageFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewReplyToMode" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewMaxMessageSize" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewPostingMode" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewSubScriptionMode" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewAuthenticationMode" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDigestMode" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewDigestMailbox" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDigestAnnotationMode" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDigestAttachmentMode" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDigestMessageSeparationMode" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDigestSchedulingStatus" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDigestSchedulingMode" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDigestSchedulingInterval" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewFromAddressMode" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditListFullResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditListFullResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveListResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHeaderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFooter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFooterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFooterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListHeader" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetHeaderResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFooter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Postoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListFooter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFooterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetFooterResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddListSoapIn">
+    <wsdl:part name="parameters" element="tns:AddList" />
+  </wsdl:message>
+  <wsdl:message name="AddListSoapOut">
+    <wsdl:part name="parameters" element="tns:AddListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListObjectPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListObjectProperties" />
+  </wsdl:message>
+  <wsdl:message name="GetListObjectPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListObjectPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListListSoapIn">
+    <wsdl:part name="parameters" element="tns:ListList" />
+  </wsdl:message>
+  <wsdl:message name="ListListSoapOut">
+    <wsdl:part name="parameters" element="tns:ListListResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditListSoapIn">
+    <wsdl:part name="parameters" element="tns:EditList" />
+  </wsdl:message>
+  <wsdl:message name="EditListSoapOut">
+    <wsdl:part name="parameters" element="tns:EditListResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditListFullSoapIn">
+    <wsdl:part name="parameters" element="tns:EditListFull" />
+  </wsdl:message>
+  <wsdl:message name="EditListFullSoapOut">
+    <wsdl:part name="parameters" element="tns:EditListFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveListSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveList" />
+  </wsdl:message>
+  <wsdl:message name="RemoveListSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFooterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFooter" />
+  </wsdl:message>
+  <wsdl:message name="GetFooterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFooterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:SetHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:SetHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFooterSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFooter" />
+  </wsdl:message>
+  <wsdl:message name="SetFooterSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFooterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ListSoap">
+    <wsdl:operation name="AddList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add a new List. A Status value of 1 will enable the List, while a Status value of 0 will disable it. A ListType value of 1 represents a moderated List, while a ListType value of 0 represents an unmoderated List. Returns 1 if the List was added successfully, otherwise returns 0 if the List already exists.</wsdl:documentation>
+      <wsdl:input message="tns:AddListSoapIn" />
+      <wsdl:output message="tns:AddListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve an existing List. Returns 1 if the list exists, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:GetListSoapIn" />
+      <wsdl:output message="tns:GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListObjectProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the Properties of an existing List. Returns 1 if the list exists, otherwise returns 0.</wsdl:documentation>
+      <wsdl:input message="tns:GetListObjectPropertiesSoapIn" />
+      <wsdl:output message="tns:GetListObjectPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of List Objects. Returns 0 if failure, 1 if complete, 2 if partial return</wsdl:documentation>
+      <wsdl:input message="tns:ListListSoapIn" />
+      <wsdl:output message="tns:ListListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit an existing List. (Minimum update)</wsdl:documentation>
+      <wsdl:input message="tns:EditListSoapIn" />
+      <wsdl:output message="tns:EditListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditListFull">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit an existing List. (Full update)</wsdl:documentation>
+      <wsdl:input message="tns:EditListFullSoapIn" />
+      <wsdl:output message="tns:EditListFullSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove an existing List. Returns 1 if List successfully removed, otherwise returns 0</wsdl:documentation>
+      <wsdl:input message="tns:RemoveListSoapIn" />
+      <wsdl:output message="tns:RemoveListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHeader">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the header text for a List.</wsdl:documentation>
+      <wsdl:input message="tns:GetHeaderSoapIn" />
+      <wsdl:output message="tns:GetHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFooter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the footer text for a List.</wsdl:documentation>
+      <wsdl:input message="tns:GetFooterSoapIn" />
+      <wsdl:output message="tns:GetFooterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetHeader">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the header text for a List.</wsdl:documentation>
+      <wsdl:input message="tns:SetHeaderSoapIn" />
+      <wsdl:output message="tns:SetHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFooter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the footer text for a List.</wsdl:documentation>
+      <wsdl:input message="tns:SetFooterSoapIn" />
+      <wsdl:output message="tns:SetFooterSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ListSoap" type="tns:ListSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddList">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/AddList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListObjectProperties">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetListObjectProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListList">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/ListList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditList">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/EditList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditListFull">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/EditListFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveList">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/RemoveList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeader">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFooter">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetFooter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHeader">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/SetHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFooter">
+      <soap:operation soapAction="http://mailenable.com/MEWebAdminService/List/SetFooter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ListSoap12" type="tns:ListSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddList">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/AddList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListObjectProperties">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetListObjectProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListList">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/ListList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditList">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/EditList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditListFull">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/EditListFull" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveList">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/RemoveList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeader">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFooter">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/GetFooter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHeader">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/SetHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFooter">
+      <soap12:operation soapAction="http://mailenable.com/MEWebAdminService/List/SetFooter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="List">
+    <wsdl:port name="ListSoap" binding="tns:ListSoap">
+      <soap:address location="https://mcpanel.markum.net/MailEnableService/List.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ListSoap12" binding="tns:ListSoap12">
+      <soap12:address location="https://mcpanel.markum.net/MailEnableService/List.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

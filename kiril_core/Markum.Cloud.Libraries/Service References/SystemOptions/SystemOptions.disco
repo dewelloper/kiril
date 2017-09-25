@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://mcpanel.markum.net/MailEnableService/SystemOptions.asmx?wsdl" docRef="https://mcpanel.markum.net/MailEnableService/SystemOptions.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://mcpanel.markum.net/MailEnableService/SystemOptions.asmx" xmlns:q1="http://mailenable.com/MEWebAdminService/SystemOptions" binding="q1:SystemOptionsSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://mcpanel.markum.net/MailEnableService/SystemOptions.asmx" xmlns:q2="http://mailenable.com/MEWebAdminService/SystemOptions" binding="q2:SystemOptionsSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

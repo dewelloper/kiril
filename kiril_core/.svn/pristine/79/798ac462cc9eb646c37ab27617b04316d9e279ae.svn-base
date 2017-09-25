@@ -1,0 +1,62 @@
+﻿using Markum.Cloud.Libraries.Hosting;
+using Markum.Cloud.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace Markum.Cloud.Api.Controllers
+{
+    public class HostingControllerCPanel : BaseApiController
+    {
+        IHostingServiceCPanel _hostingService;
+        public HostingControllerCPanel(IHostingServiceCPanel hostingService) : base()
+        {
+            _hostingService = hostingService;
+        }
+
+        [HttpPost]
+        public IHttpActionResult AddPackage([FromBody]HostingBaseModel model, string packageName)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return JSendBadRequest(ModelState);
+                }
+
+                var result = _hostingService.AddPackage(model, packageName);
+
+                return JSendCreated("", result);
+            }
+            catch (Exception ex)
+            {
+                return JSendError(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public IHttpActionResult CreateAccount([FromBody]HostingBaseModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return JSendBadRequest(ModelState);
+                }
+
+                string message = "";
+                var result = _hostingService.CreateAccount(model, out message);
+
+                return JSendCreated("", result);
+            }
+            catch (Exception ex)
+            {
+                return JSendError(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+    }
+}

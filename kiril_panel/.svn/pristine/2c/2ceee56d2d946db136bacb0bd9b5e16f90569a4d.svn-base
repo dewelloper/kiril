@@ -1,0 +1,65 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace panel
+{
+    public partial class design : System.Web.UI.MasterPage
+    {
+
+        protected string _accessToken;
+        protected string _accessUrl = "http://beta.core.markum.net/api/customeraccount";
+        protected string _currUser;
+         
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Request.QueryString["acc"] != null)
+            {
+                _accessToken = Request.QueryString["acc"].ToString();
+                Session["_accessToken"] = _accessToken;
+            }
+
+            if (HttpContext.Current.Request.IsLocal)
+                Session["_accessToken"] = "TaMpQhtmzFKNrni2vzpB5KmUmKGvcApg5YmeZcTK94kEJmOENua3ygjOwTANqgXONgPcoKgyk76Nty7-Is3tMFsQkEkSYWSKOnaPpFObPwO38FCMUB9pPolR0raDXu_V9Eokggl-xGB5z8njxtqRVglQ5RvMj_m-XMgcR5vgfQfIIVcRertgOjjMQ7zjzykbxKmH3DjiMg_M9XGh-nLbMkOhLuP3snt4tWaJAjWWY8cpLs4TiHt12or1T10ZUcVdJ0vD8PkqxUSf_XQdoqvvNyU7IiPB6ahwchgbT1XhjOJH-dU8UdKHmarz87__9VRE";
+
+            if (!IsAccessTokenOk())
+            {
+                Response.Redirect("http://beta.markum.net/Account/Login");
+            }
+        }
+
+
+        private bool IsAccessTokenOk()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                if (Session["_accessToken"] == null)
+                    return false;
+
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Session["_accessToken"].ToString());
+
+                var response = httpClient.GetAsync(_accessUrl).Result;
+
+                if (response.StatusCode.ToString() == "Unauthorized")
+                    return false;
+
+                var res = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result);
+
+                _currUser = res.data.Name + ' ' + res.data.Surname;
+            }
+
+            return true;
+        }
+
+
+    }
+}
